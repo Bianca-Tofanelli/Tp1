@@ -1,0 +1,10 @@
+^C:\USERS\BIBIT\ONEDRIVE\DOCUMENTOS\GITHUB\TP1\BUILD\CMAKEFILES\_CMAKELTOTEST-CXX\BIN\CMAKEFILES\4B13D53AA580BC51EC6265FAE4A77E2C\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/build/CMakeFiles/_CMakeLTOTest-CXX/src -BC:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/build/CMakeFiles/_CMakeLTOTest-CXX/bin --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/build/CMakeFiles/_CMakeLTOTest-CXX/bin/lto-test.slnx
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

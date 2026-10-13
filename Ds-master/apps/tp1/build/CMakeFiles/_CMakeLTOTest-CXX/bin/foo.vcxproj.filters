@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\build\CMakeFiles\_CMakeLTOTest-CXX\src\foo.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\build\CMakeFiles\_CMakeLTOTest-CXX\src\foo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\build\CMakeFiles\_CMakeLTOTest-CXX\src\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\build\CMakeFiles\_CMakeLTOTest-CXX\src\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{65E7E4EA-D4AC-3735-94F6-E7465E25E62D}</UniqueIdentifier>
+      <UniqueIdentifier>{A2F8B2EF-BF40-33B7-B6A0-9AF24E529163}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\build\CMakeFiles\_CMakeLTOTest-CXX\src\foo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\build\CMakeFiles\_CMakeLTOTest-CXX\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{2CA0C77D-2FA0-344D-BAFD-A1BB1B7146C2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\Polyline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\MainWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\RayTracer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\SceneWriter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\Writer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\reader\AbstractParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\reader\Buffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\reader\ErrorHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\reader\Expression.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\reader\FileBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\reader\ReaderBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\reader\SceneReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\reader\Scope.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\Polyline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{0F4E24A0-5CF6-3E33-A9F3-28EA57937EF9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{F3463724-260D-357F-B080-412F2BBCD920}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

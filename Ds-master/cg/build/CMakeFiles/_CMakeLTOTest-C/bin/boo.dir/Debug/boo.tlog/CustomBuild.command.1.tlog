@@ -1,6 +1,6 @@
-^C:\USERS\BIBIT\DOWNLOADS\DS-MASTER\DS-MASTER\CG\BUILD\CMAKEFILES\_CMAKELTOTEST-C\SRC\CMAKELISTS.TXT
+^C:\USERS\BIBIT\ONEDRIVE\DOCUMENTOS\GITHUB\TP1\DS-MASTER\CG\BUILD\CMAKEFILES\_CMAKELTOTEST-C\SRC\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/bibit/Downloads/Ds-master/Ds-master/cg/build/CMakeFiles/_CMakeLTOTest-C/src -BC:/Users/bibit/Downloads/Ds-master/Ds-master/cg/build/CMakeFiles/_CMakeLTOTest-C/bin --check-stamp-file C:/Users/bibit/Downloads/Ds-master/Ds-master/cg/build/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/cg/build/CMakeFiles/_CMakeLTOTest-C/src -BC:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/cg/build/CMakeFiles/_CMakeLTOTest-C/bin --check-stamp-file C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/cg/build/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

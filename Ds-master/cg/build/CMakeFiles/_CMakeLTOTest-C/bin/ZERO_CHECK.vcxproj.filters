@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\build\CMakeFiles\_CMakeLTOTest-C\bin\CMakeFiles\7b3fffa8354b7493c491825e6d90af6f\generate.stamp.rule">
+    <CustomBuild Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\build\CMakeFiles\_CMakeLTOTest-C\bin\CMakeFiles\957258aa1454a1fc75ec162298b311ec\generate.stamp.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{22EC88D2-68D3-3FA5-88A1-13AC0BD512AE}</UniqueIdentifier>
+      <UniqueIdentifier>{1E06736F-8F20-3567-B73F-E9831A226F07}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

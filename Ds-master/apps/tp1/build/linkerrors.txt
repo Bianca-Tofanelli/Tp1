@@ -1,8 +1,0 @@
-================================================================================
-Linker Errors
-Generated: 2026-10-13T20:51:14.135Z
-Total Errors: 1
-================================================================================
-
-[LNK1104] (MSVC)
-não é possível abrir o arquivo 'C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\lib\cgD.lib' [C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\build\cgdemo.vcxproj]

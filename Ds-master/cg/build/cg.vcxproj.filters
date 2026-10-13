@@ -1,193 +1,193 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\externals\src\gl3w.c">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\externals\src\gl3w.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\externals\src\imgui_draw.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\externals\src\imgui_draw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\externals\src\imgui_impl_glfw.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\externals\src\imgui_impl_glfw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\externals\src\imgui_impl_opengl3.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\externals\src\imgui_impl_opengl3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\externals\src\imgui_tables.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\externals\src\imgui_tables.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\externals\src\imgui_widgets.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\externals\src\imgui_widgets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\externals\src\imgui.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\externals\src\imgui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\core\BlockAllocator.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\core\BlockAllocator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\core\Exception.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\core\Exception.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\core\NamedObject.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\core\NamedObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\debug\AnimatedAlgorithm.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\debug\AnimatedAlgorithm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\geometry\BVH.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\geometry\BVH.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\geometry\MeshSweeper.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\geometry\MeshSweeper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\geometry\TriangleMesh.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\geometry\TriangleMesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\geometry\TriangleMeshBVH.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\geometry\TriangleMeshBVH.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graph\CameraProxy.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graph\CameraProxy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graph\Component.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graph\Component.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graph\LightProxy.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graph\LightProxy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graph\PrimitiveProxy.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graph\PrimitiveProxy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graph\SceneObject.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graph\SceneObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graph\SceneObjectBuilder.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graph\SceneObjectBuilder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graph\SceneWindow.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graph\SceneWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graph\Transform.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graph\Transform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\Application.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\Assets.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\Assets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\AssetFolder.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\AssetFolder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\Camera.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\Color.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\Color.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\GLFramebuffer.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\GLFramebuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\GLGraphics2.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\GLGraphics2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\GLGraphics3.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\GLGraphics3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\GLGraphicsBase.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\GLGraphicsBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\GLImage.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\GLImage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\GLLines3.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\GLLines3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\GLLines3Renderer.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\GLLines3Renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\GLMesh.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\GLMesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\GLMeshRenderer.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\GLMeshRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\GLMeshRendererBase.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\GLMeshRendererBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\GLPoints3.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\GLPoints3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\GLPoints3Renderer.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\GLPoints3Renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\GLProgram.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\GLProgram.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\GLRenderer.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\GLRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\GLRenderWindow2.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\GLRenderWindow2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\GLRenderWindow3.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\GLRenderWindow3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\GLTextureFramebuffer.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\GLTextureFramebuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\GLWindow.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\GLWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\Image.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\Image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\Light.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\Light.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\Primitive.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\Primitive.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\PrimitiveBVH.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\PrimitiveBVH.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\PrimitiveMapper.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\PrimitiveMapper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\Renderer.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\Renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\SceneEditor.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\SceneEditor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\SceneWindowBase.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\SceneWindowBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\Shape.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\Shape.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\TransformableObject.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\TransformableObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\TriangleMeshMapper.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\TriangleMeshMapper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\graphics\TriangleMeshShape.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\graphics\TriangleMeshShape.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\utils\MeshReader.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\utils\MeshReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\src\utils\MeshWriter.cpp">
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\src\utils\MeshWriter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\bibit\Downloads\Ds-master\Ds-master\cg\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\cg\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{6F4921A3-542C-3EC3-959A-272C39BA89F9}</UniqueIdentifier>
+      <UniqueIdentifier>{1ED012C7-0298-34B7-8679-0771838A38F3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

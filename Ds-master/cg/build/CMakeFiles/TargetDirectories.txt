@@ -1,3 +1,3 @@
-C:/Users/bibit/Downloads/Ds-master/Ds-master/cg/build/CMakeFiles/cg.dir
-C:/Users/bibit/Downloads/Ds-master/Ds-master/cg/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/bibit/Downloads/Ds-master/Ds-master/cg/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/cg/build/CMakeFiles/cg.dir
+C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/cg/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/cg/build/CMakeFiles/ZERO_CHECK.dir

@@ -1,0 +1,118 @@
+//[]---------------------------------------------------------------[]
+//|                                                                 |
+//| Copyright (C) 2018, 2026 Paulo Pagliosa.                        |
+//|                                                                 |
+//| This software is provided 'as-is', without any express or       |
+//| implied warranty. In no event will the authors be held liable   |
+//| for any damages arising from the use of this software.          |
+//|                                                                 |
+//| Permission is granted to anyone to use this software for any    |
+//| purpose, including commercial applications, and to alter it and |
+//| redistribute it freely, subject to the following restrictions:  |
+//|                                                                 |
+//| 1. The origin of this software must not be misrepresented; you  |
+//| must not claim that you wrote the original software. If you use |
+//| this software in a product, an acknowledgment in the product    |
+//| documentation would be appreciated but is not required.         |
+//|                                                                 |
+//| 2. Altered source versions must be plainly marked as such, and  |
+//| must not be misrepresented as being the original software.      |
+//|                                                                 |
+//| 3. This notice may not be removed or altered from any source    |
+//| distribution.                                                   |
+//|                                                                 |
+//[]---------------------------------------------------------------[]
+//
+// OVERVIEW: Image.cpp
+// ========
+// Source file for generic image.
+//
+// Author: Paulo Pagliosa
+// Last revision: 06/10/2026
+
+#include "graphics/Image.h"
+#include <algorithm>
+#include <utility>
+
+namespace cg
+{ // begin namespace cg
+
+
+/////////////////////////////////////////////////////////////////////
+//
+// ImageBuffer implementation
+// ===========
+ImageBuffer::ImageBuffer(int w, int h)
+{
+  assert(w > 0 && h > 0);
+  _W = w;
+  _H = h;
+  _data = new Pixel[(size_t)w * h];
+}
+
+ImageBuffer::ImageBuffer(ImageBuffer&& other) noexcept:
+  _W{std::exchange(other._W, 0)},
+  _H{std::exchange(other._H, 0)},
+  _data{std::exchange(other._data, nullptr)}
+{
+  // so nothing
+}
+
+ImageBuffer&
+ImageBuffer::operator =(ImageBuffer&& other) noexcept
+{
+  if (this != &other)
+  {
+    delete []_data;
+    _W = std::exchange(other._W, 0);
+    _H = std::exchange(other._H, 0);
+    _data = std::exchange(other._data, nullptr);
+  }
+  return *this;
+}
+
+
+/////////////////////////////////////////////////////////////////////
+//
+// Image implementation
+// =====
+Image::Image(int w, int h)
+{
+  assert(w > 0 && h > 0);
+  _W = w;
+  _H = h;
+}
+
+void
+Image::setData(int x, int y, const ImageBuffer& buffer)
+{
+  assert(x >= 0 && x < _W && y >= 0 && y < _H);
+
+  auto w = std::min(_W, buffer._W);
+  auto h = std::min(_H, buffer._H);
+
+  if (x + w > _W)
+    w = _W - x;
+  if (y + h > _H)
+    h = _W - y;
+  setSubImage(x, y, w, h, buffer._data);
+}
+
+ImageBuffer
+Image::data(int x, int y, int w, int h) const
+{
+  assert(x >= 0 && x < _W && y >= 0 && y < _H);
+  w = std::min(_W, w);
+  h = std::min(_H, h);
+  if (x + w > _W)
+    w = _W - x;
+  if (y + h > _H)
+    h = _W - y;
+
+  ImageBuffer buffer{w, h};
+
+  getSubImage(x, y, w, h, buffer._data);
+  return buffer;
+}
+
+} // end namespace cg

@@ -1,0 +1,75 @@
+//[]---------------------------------------------------------------[]
+//|                                                                 |
+//| Copyright (C) 2018, 2026 Paulo Pagliosa.                        |
+//|                                                                 |
+//| This software is provided 'as-is', without any express or       |
+//| implied warranty. In no event will the authors be held liable   |
+//| for any damages arising from the use of this software.          |
+//|                                                                 |
+//| Permission is granted to anyone to use this software for any    |
+//| purpose, including commercial applications, and to alter it and |
+//| redistribute it freely, subject to the following restrictions:  |
+//|                                                                 |
+//| 1. The origin of this software must not be misrepresented; you  |
+//| must not claim that you wrote the original software. If you use |
+//| this software in a product, an acknowledgment in the product    |
+//| documentation would be appreciated but is not required.         |
+//|                                                                 |
+//| 2. Altered source versions must be plainly marked as such, and  |
+//| must not be misrepresented as being the original software.      |
+//|                                                                 |
+//| 3. This notice may not be removed or altered from any source    |
+//| distribution.                                                   |
+//|                                                                 |
+//[]---------------------------------------------------------------[]
+//
+// OVERVIEW: Renderer.cpp
+// ========
+// Source file for generic renderer.
+//
+// Author: Paulo Pagliosa
+// Last revision: 04/09/2026
+
+#include "graphics/Renderer.h"
+
+namespace cg
+{ // begin namespace cg
+
+
+/////////////////////////////////////////////////////////////////////
+//
+// Renderer implementation
+// ========
+void
+Renderer::setImageSize(int w, int h)
+{
+  assert(w >= 0 && h >= 0);
+  _viewport.w = w;
+  _viewport.h = h;
+  camera()->setAspectRatio((float)(w) / (float)(h));
+}
+
+vec3f
+Renderer::project(const vec3f& p) const
+{
+  // TODO: consider viewport origin
+  auto w = normalize(vpMatrix(camera()) * vec4f{p, 1});
+
+  w.x = (w.x * 0.5f + 0.5f) * _viewport.w;
+  w.y = (w.y * 0.5f + 0.5f) * _viewport.h;
+  w.z = (w.z * 0.5f + 0.5f);
+  return w;
+}
+
+vec3f
+Renderer::unproject(const vec3f& w) const
+{
+  // TODO: consider viewport origin
+  vec3f p{w.x / _viewport.w * 2 - 1, w.y / _viewport.h * 2 - 1, w.z * 2 - 1};
+  mat4f m{vpMatrix(camera())};
+
+  m.invert();
+  return normalize(m * vec4f{p, 1});
+}
+
+} // end namespace cg

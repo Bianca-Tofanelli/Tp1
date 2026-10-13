@@ -1,0 +1,101 @@
+//[]---------------------------------------------------------------[]
+//|                                                                 |
+//| Copyright (C) 2014, 2026 Paulo Pagliosa.                        |
+//|                                                                 |
+//| This software is provided 'as-is', without any express or       |
+//| implied warranty. In no event will the authors be held liable   |
+//| for any damages arising from the use of this software.          |
+//|                                                                 |
+//| Permission is granted to anyone to use this software for any    |
+//| purpose, including commercial applications, and to alter it and |
+//| redistribute it freely, subject to the following restrictions:  |
+//|                                                                 |
+//| 1. The origin of this software must not be misrepresented; you  |
+//| must not claim that you wrote the original software. If you use |
+//| this software in a product, an acknowledgment in the product    |
+//| documentation would be appreciated but is not required.         |
+//|                                                                 |
+//| 2. Altered source versions must be plainly marked as such, and  |
+//| must not be misrepresented as being the original software.      |
+//|                                                                 |
+//| 3. This notice may not be removed or altered from any source    |
+//| distribution.                                                   |
+//|                                                                 |
+//[]---------------------------------------------------------------[]
+//
+// OVERVIEW: GLMesh.cpp
+// ========
+// Source file for OpenGL mesh array object.
+//
+// Author: Paulo Pagliosa
+// Last revision: 06/10/2026
+
+#include "graphics/GLMesh.h"
+
+namespace cg
+{ // begin namespace cg
+
+template <typename T>
+constexpr auto bufferSize(int n)
+{
+  return sizeof(T) * n;
+}
+
+
+/////////////////////////////////////////////////////////////////////
+//
+// GLMesh implementation
+// ======
+GLMesh::GLMesh(const TriangleMesh& mesh)
+{
+  glGenVertexArrays(1, &_vao);
+  glBindVertexArray(_vao);
+  glGenBuffers(4, _buffers);
+
+  const auto& m = mesh.data();
+
+  _vertexCount = m.vertexCount;
+  _triangleCount = m.triangleCount;
+  if (auto s = bufferSize<vec3f>(_vertexCount))
+  {
+    // location 0: position
+    glBindBuffer(GL_ARRAY_BUFFER, _buffers[0]);
+    glBufferData(GL_ARRAY_BUFFER, s, m.vertices, GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+    glEnableVertexAttribArray(0);
+    // location 1: normal
+    glBindBuffer(GL_ARRAY_BUFFER, _buffers[1]);
+    glBufferData(GL_ARRAY_BUFFER, s, m.vertexNormals, GL_STATIC_DRAW);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, 0);
+    glEnableVertexAttribArray(1);
+  }
+  if (auto s = mesh.hasUV() * bufferSize<vec2f>(_vertexCount))
+  {
+    // location 2: uv
+    glBindBuffer(GL_ARRAY_BUFFER, _buffers[2]);
+    glBufferData(GL_ARRAY_BUFFER, s, m.uv, GL_STATIC_DRAW);
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, 0);
+    glEnableVertexAttribArray(2);
+  }
+  if (auto s = bufferSize<TriangleMesh::Triangle>(_triangleCount))
+  {
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _buffers[3]);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, s, m.triangles, GL_STATIC_DRAW);
+  }
+}
+
+void
+GLMesh::setColors(GLColorBuffer* colors)
+{
+  if (colors)
+  {
+    assert(colors->size() == _vertexCount);
+    bind();
+    colors->bind();
+    glVertexAttribPointer(colorLoc, 4, GL_FLOAT, GL_FALSE, 0, 0);
+    glEnableVertexAttribArray(colorLoc);
+  }
+  glVertexAttrib4f(colorLoc, 0, 0, 0, 0);
+}
+
+} // end namespace cg

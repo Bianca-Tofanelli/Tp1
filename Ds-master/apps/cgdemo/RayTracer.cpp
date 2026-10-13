@@ -1,0 +1,454 @@
+//[]---------------------------------------------------------------[]
+//|                                                                 |
+//| Copyright (C) 2018, 2026 Paulo Pagliosa.                        |
+//|                                                                 |
+//| This software is provided 'as-is', without any express or       |
+//| implied warranty. In no event will the authors be held liable   |
+//| for any damages arising from the use of this software.          |
+//|                                                                 |
+//| Permission is granted to anyone to use this software for any    |
+//| purpose, including commercial applications, and to alter it and |
+//| redistribute it freely, subject to the following restrictions:  |
+//|                                                                 |
+//| 1. The origin of this software must not be misrepresented; you  |
+//| must not claim that you wrote the original software. If you use |
+//| this software in a product, an acknowledgment in the product    |
+//| documentation would be appreciated but is not required.         |
+//|                                                                 |
+//| 2. Altered source versions must be plainly marked as such, and  |
+//| must not be misrepresented as being the original software.      |
+//|                                                                 |
+//| 3. This notice may not be removed or altered from any source    |
+//| distribution.                                                   |
+//|                                                                 |
+//[]---------------------------------------------------------------[]
+//
+// OVERVIEW: RayTracer.cpp
+// ========
+// Source file for simple ray tracer.
+//
+// Author: Paulo Pagliosa
+// Last revision: 06/10/2026
+
+#include "graphics/Camera.h"
+#include "utils/Stopwatch.h"
+#include "RayTracer.h"
+#include <iostream>
+
+using namespace std;
+
+namespace cg
+{ // begin namespace cg
+
+namespace
+{ // begin namespace
+
+inline void
+printElapsedTime(const char* s, Stopwatch::ms_time time)
+{
+  printf("%sElapsed time: %g ms\n", s, time);
+}
+
+} // end namespace
+
+
+/////////////////////////////////////////////////////////////////////
+//
+// RayTracer implementation
+// =========
+RayTracer::RayTracer(SceneBase& scene, Camera& camera):
+  Renderer{scene, &camera},
+  _maxRecursionLevel{6},
+  _minWeight{minMinWeight},
+  _adaptivityDistance{16}
+{
+  // do nothing
+}
+
+void
+RayTracer::update()
+{
+  // Delete the current BVH before creating a new one
+  _bvh = nullptr;
+
+  PrimitiveBVH::PrimitiveArray primitives;
+  auto np = uint32_t(0);
+
+  primitives.reserve(_scene->actorCount());
+  for (auto actor : _scene->actors())
+    if (actor->visible)
+    {
+      auto p = actor->mapper()->primitive();
+
+      assert(p);
+      if (p->canIntersect())
+      {
+        primitives.push_back(p);
+        np++;
+      }
+    }
+  _bvh = new PrimitiveBVH{std::move(primitives)};
+}
+
+void
+RayTracer::render()
+{
+  throw std::runtime_error("RayTracer::render() invoked");
+}
+
+void
+RayTracer::renderImage(Image& image)
+{
+  Stopwatch timer;
+
+  update();
+  timer.start();
+
+  const auto camera = this->camera();
+
+  {
+    const auto& m = camera->cameraToWorldMatrix();
+
+    // VRC axes
+    _vrc.u.set(m[0]);
+    _vrc.v.set(m[1]);
+    _vrc.n.set(m[2]);
+  }
+
+  // Init auxiliary mapping variables
+  auto w = image.width(), h = image.height();
+
+  setImageSize(w, h);
+  _Iw = math::inverse(float(w));
+  _Ih = math::inverse(float(h));
+  {
+    auto wh = camera->windowHeight();
+
+    if (w >= h)
+      _Vw = (_Vh = wh) * w * _Ih;
+    else
+      _Vh = (_Vw = wh) * h * _Iw;
+  }
+
+  // Init the pixel ray
+  float F, B;
+
+  camera->clippingPlanes(F, B);
+  if (camera->projectionType() == Camera::Perspective)
+  {
+    // Distance from the camera position to a frustum back corner
+    auto z = B / F * 0.5f;
+    B = vec3f{_Vw * z, _Vh * z, B}.length();
+  }
+  _pixelRay.tMin = F;
+  _pixelRay.tMax = B;
+  _pixelRay.set(camera->position(), -_vrc.n);
+  _numberOfRays = _numberOfHits = 0;
+  scan(image);
+
+  auto et = timer.time();
+
+  std::cout << "\nNumber of rays: " << _numberOfRays;
+  std::cout << "\nNumber of hits: " << _numberOfHits;
+  printElapsedTime("\nDONE! ", et);
+}
+
+/**
+ * @brief Set pixel ray.
+ *
+ * @param x X coordinate of the pixel.
+ * @param y Y coordinate of the pixel.
+ */
+void
+RayTracer::setPixelRay(float x, float y)
+{
+  const auto camera = this->camera();
+  auto p = imageToWindow(x, y);
+
+  switch (camera->projectionType())
+  {
+    case Camera::Perspective:
+      _pixelRay.direction = (p - camera->nearPlane() * _vrc.n).versor();
+      break;
+    case Camera::Parallel:
+      _pixelRay.origin = camera->position() + p;
+      break;
+  }
+}
+
+void
+RayTracer::adaptiveScan(Image& image)
+{
+  const auto samplesPerRow = image.width() * maxSteps + 1;
+  std::vector<PixelSample> sampleBuffer(samplesPerRow);
+  SampleWindow sampleWindow;
+
+  // TODO
+}
+
+Pixel
+RayTracer::adapt(SampleWindow& sampleWindow,
+  int i0,
+  int j0,
+  float x,
+  float y,
+  int step)
+{
+  auto sampleColor = [&](int i, int j, float x, float y)
+  {
+    constexpr auto stepSize = 1.0f / maxSteps;
+    auto& s = sampleWindow[i][j];
+
+    if (!s.cooked)
+    {
+      s.color = shoot(x + (float)i * stepSize, y + (float)j * stepSize);
+      s.cooked = true;
+    }
+    return s.color;
+  };
+  auto is = i0 + step;
+  auto js = j0 + step;
+  Pixel corners[]
+  {
+    sampleColor(i0, j0, x, y),
+    sampleColor(is, j0, x, y),
+    sampleColor(i0, js, x, y),
+    sampleColor(is, js, x, y)
+  };
+  auto average = [](const Pixel colors[4])
+  {
+    auto a = colors[0] + colors[1] + colors[2] + colors[3];
+
+    a.r >>= 2;
+    a.g >>= 2;
+    a.b >>= 2;
+    return a;
+  };
+  auto a = average(corners);
+  auto testColors = [&](const Pixel colors[4], const Pixel& a)
+  {
+    auto test = [&](uint8_t c, uint8_t a)
+    {
+      return uint8_t(abs(int(c) - int(a))) >= _adaptivityDistance;
+    };
+
+    for (int i = 0; i < 4; ++i)
+    {
+      auto& c = colors[i];
+
+      if (test(c.r, a.r) || test(c.g, a.g) || test(c.b, a.b))
+        return true;
+    }
+    return false;
+  };
+
+  if (step > 1 && testColors(corners, a))
+  {
+    step >>= 1;
+    is = i0 + step;
+    js = j0 + step;
+    corners[0] = adapt(sampleWindow, i0, j0, x, y, step);
+    corners[1] = adapt(sampleWindow, is, j0, x, y, step);
+    corners[2] = adapt(sampleWindow, i0, js, x, y, step);
+    corners[3] = adapt(sampleWindow, is, js, x, y, step);
+    a = average(corners);
+  }
+  return a;
+}
+
+void
+RayTracer::scan(Image& image)
+{
+  ImageBuffer scanLine{_viewport.w, 1};
+
+  for (auto j = 0; j < _viewport.h; j++)
+  {
+    auto y = (float)j + 0.5f;
+
+    printf("Scanning line %d of %d\r", j + 1, _viewport.h);
+    for (auto i = 0; i < _viewport.w; i++)
+      scanLine[i] = shoot((float)i + 0.5f, y);
+    image.setData(0, j, scanLine);
+  }
+}
+
+/**
+ * @brief Shoot a pixel ray.
+ *
+ * @param x X coordinate of the pixel.
+ * @param y Y coordinate of the pixel.
+ * @return RGB color of the pixel.
+ */
+Color
+RayTracer::shoot(float x, float y)
+{
+  // Set the pixel ray
+  setPixelRay(x, y);
+
+  // Trace the pixel ray
+  auto color = trace(_pixelRay, 0, 1);
+
+  // Adjust RGB color
+  if (color.r > 1.0f)
+    color.r = 1.0f;
+  if (color.g > 1.0f)
+    color.g = 1.0f;
+  if (color.b > 1.0f)
+    color.b = 1.0f;
+  // Return pixel color
+  return color;
+}
+
+/**
+ * @brief Trace a ray.
+ *
+ * @param ray The ray to be traced.
+ * @param level Recursion level.
+ * @param weight Ray weight.
+ * @return Color of the ray.
+ */
+Color
+RayTracer::trace(const Ray3f& ray, uint32_t level, float weight)
+{
+  if (level > _maxRecursionLevel)
+    return Color::black;
+  ++_numberOfRays;
+
+  Intersection hit;
+
+  return intersect(ray, hit) ? shade(ray, hit, level, weight) : background();
+}
+
+inline constexpr auto
+rt_eps()
+{
+  return 1e-4f;
+}
+
+/**
+ * @brief Ray/object intersection.
+ *
+ * @param[in] ray The ray.
+ * @param[out] hit Information on intersection.
+ * @return @c true if the ray intersects an object,
+ * @c false otherwise.
+ */
+bool
+RayTracer::intersect(const Ray3f& ray, Intersection& hit)
+{
+  hit.object = nullptr;
+  hit.distance = ray.tMax;
+  return _bvh->intersect(ray, hit) ? ++_numberOfHits : false;
+}
+
+inline auto
+maxRGB(const Color& c)
+{
+  return math::max(math::max(c.r, c.g), c.b);
+}
+
+/**
+ * @brief Shade a point P.
+ *
+ * @param[in] ray The ray.
+ * @param[in] hit Information about the intersection.
+ * @param level Recursion level.
+ * @param weight Ray weight.
+ * @return Color at point P.
+ */
+Color
+RayTracer::shade(const Ray3f& ray,
+  Intersection& hit,
+  uint32_t level,
+  float weight)
+{
+  auto primitive = (Primitive*)hit.object;
+
+  assert(primitive);
+
+  auto N = primitive->normal(hit);
+  const auto& V = ray.direction;
+  auto NV = N.dot(V);
+
+  // Make sure the "real" normal is on right side
+  if (NV > 0)
+    N.negate(), NV = -NV;
+
+  auto R = V - (2 * NV) * N; // reflection vector
+  // Start with ambient lighting
+  auto m = primitive->material();
+  auto color = _scene->ambientLight * m->ambient;
+  auto P = ray(hit.distance);
+
+  // Compute the direct lighting
+  for (auto light : _scene->lights())
+  {
+    // If the light is turned off, then continue
+    if (!light->isTurnedOn())
+      continue;
+
+    vec3f L;
+    float d;
+
+    // If the point P is out of the light range (for finite
+    // point light or spotlight), then continue
+    if (!light->lightVector(P, L, d))
+      continue;
+
+    auto NL = N.dot(L);
+
+    // If the light vector is backfaced, then continue
+    if (NL <= 0)
+      continue;
+
+    auto lightRay = Ray3f{P + L * rt_eps(), L};
+
+    lightRay.tMax = d;
+    ++_numberOfRays;
+    // If the point P is shadowed, then continue
+    if (shadow(lightRay))
+      continue;
+
+    auto lc = light->lightColor(d);
+
+    color += lc * m->diffuse * NL;
+    if (m->shine <= 0 || (d = R.dot(L)) <= 0)
+      continue;
+    color += lc * m->spot * pow(d, m->shine);
+  }
+  // Compute specular reflection
+  if (m->specular != Color::black)
+  {
+    weight *= maxRGB(m->specular);
+    if (weight > _minWeight && level < _maxRecursionLevel)
+    {
+      auto reflectionRay = Ray3f{P + R * rt_eps(), R};
+      color += m->specular * trace(reflectionRay, level + 1, weight);
+    }
+  }
+  return color;
+}
+
+/**
+ * @brief Returns the scene's background color.
+ */
+Color
+RayTracer::background() const
+{
+  return _scene->backgroundColor;
+}
+
+/**
+ * @brief Verify if ray is a shadow ray.
+ *
+ * @param[in] ray The ray.
+ * @return @c true if the ray intersects an object,
+ * @c false otherwise.
+ */
+bool
+RayTracer::shadow(const Ray3f& ray)
+{
+  return _bvh->intersect(ray) ? ++_numberOfHits : false;
+}
+
+} // end namespace cg

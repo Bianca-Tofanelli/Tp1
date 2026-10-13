@@ -1,0 +1,242 @@
+//[]---------------------------------------------------------------[]
+//|                                                                 |
+//| Copyright (C) 2018, 2026 Paulo Pagliosa.                        |
+//|                                                                 |
+//| This software is provided 'as-is', without any express or       |
+//| implied warranty. In no event will the authors be held liable   |
+//| for any damages arising from the use of this software.          |
+//|                                                                 |
+//| Permission is granted to anyone to use this software for any    |
+//| purpose, including commercial applications, and to alter it and |
+//| redistribute it freely, subject to the following restrictions:  |
+//|                                                                 |
+//| 1. The origin of this software must not be misrepresented; you  |
+//| must not claim that you wrote the original software. If you use |
+//| this software in a product, an acknowledgment in the product    |
+//| documentation would be appreciated but is not required.         |
+//|                                                                 |
+//| 2. Altered source versions must be plainly marked as such, and  |
+//| must not be misrepresented as being the original software.      |
+//|                                                                 |
+//| 3. This notice may not be removed or altered from any source    |
+//| distribution.                                                   |
+//|                                                                 |
+//[]---------------------------------------------------------------[]
+//
+// OVERVIEW: SceneObject.h
+// ========
+// Class definition for scene object.
+//
+// Author: Paulo Pagliosa
+// Last revision: 06/10/2026
+
+#ifndef __SceneObject_h
+#define __SceneObject_h
+
+#include "core/List.h"
+#include "core/ObjectList.h"
+#include "graph/Component.h"
+#include "graph/SceneNode.h"
+#include "graph/Transform.h"
+#include <cassert>
+
+namespace cg::graph
+{ // begin namespace cg::graph
+
+class Scene;
+class SceneObject;
+
+using SceneObjectAllocator = BlockAllocator<SceneObject, 32>;
+
+
+/////////////////////////////////////////////////////////////////////
+//
+// SceneObject: scene object class
+// ===========
+class SceneObject: public SharedNamedObject,
+  public ObjectListNode<SceneObject, SceneObjectAllocator>
+{
+public:
+  /// Constructs an empty scene object.
+  [[nodiscard]] static auto New(Scene& scene, const char* name = "")
+  {
+    return new SceneObject{scene, name};
+  }
+
+  ~SceneObject() override;
+
+  /// Returns the scene which this scene object belong to.
+  [[nodiscard]] auto scene() const
+  {
+    return _scene;
+  }
+
+  /// Returns the parent of this scene object.
+  [[nodiscard]] auto parent() const
+  {
+    return _parent;
+  }
+
+  /// Sets the parent of this scene object.
+  void setParent(SceneObject* parent);
+
+  /// Returns the transform of this scene object.
+  [[nodiscard]] auto transform() const
+  {
+    return &_transform;
+  }
+
+  [[nodiscard]] auto transform()
+  {
+    return &_transform;
+  }
+
+  SceneObject* duplicate() const
+  {
+    return duplicate(_parent);
+  }
+
+  SceneObject* addChild(SceneObject* child);
+
+  auto makeChild(const char* name)
+  {
+    assert(name);
+    return addChild(New(*_scene, name));
+  }
+
+  bool removeChild(SceneObject* child);
+
+  [[nodiscard]] auto childrenCount() const
+  {
+    return (int)_children.size();
+  }
+
+  [[nodiscard]] const auto& children() const
+  {
+    return _children;
+  }
+
+  [[nodiscard]] auto& children()
+  {
+    return _children;
+  }
+
+  template <typename C>
+  auto addComponent(C* component)
+  {
+    return (C*)insertComponent(component);
+  }
+
+  bool removeComponent(const char* typeName);
+
+  [[nodiscard]] auto componentCount() const
+  {
+    return (int)_components.size();
+  }
+
+  [[nodiscard]] const auto& components() const
+  {
+    return _components;
+  }
+
+  [[nodiscard]] auto& components()
+  {
+    return _components;
+  }
+
+  [[nodiscard]] Component* findComponent(const char* typeName) const;
+
+  /// Returns true if this scene object is movable.
+  [[nodiscard]] auto movable() const
+  {
+    return _flags.movable;
+  }
+
+  /// Returns true if this scene object is visible.
+  [[nodiscard]] auto visible() const
+  {
+    return _flags.visible;
+  }
+
+  void setVisible(bool value);
+
+  /// Returns true if this scene object is selected.
+  [[nodiscard]] auto selected() const
+  {
+    return _flags.selected;
+  }
+
+  /// Returns true if this scene object is selectable.
+  [[nodiscard]] auto selectable() const
+  {
+    return _flags.selectable;
+  }
+
+  void setSelected(bool value)
+  {
+    _flags.selected = value;
+  }
+
+  void transformChanged();
+
+private:
+  using SceneObjects = ObjectList<SceneObject>;
+  using Components = List<Reference<Component>>;
+
+  Scene* _scene;
+  SceneObject* _parent;
+  Transform _transform;
+  SceneObjects _children;
+  Components _components;
+  mutable struct
+  {
+    bool movable : 1;
+    bool visible : 1;
+    bool selectable : 1;
+    bool selected : 1;
+
+  } _flags{true, true, true, false};
+
+  SceneObject(Scene& scene, const char* name, bool movable = true);
+
+  SceneObject(Scene& scene):
+    _scene{&scene},
+    _parent{}
+  {
+    // do nothing
+  }
+
+  SceneObject(const SceneObject&);
+
+  SceneObject* duplicate(SceneObject*) const;
+  bool canAddComponent(Component*) const;
+
+  Component* insertComponent(Component*, bool = false);
+  void makeComponentAttachments(Component*);
+  void releaseComponentAttachments(Component*);
+  void changeParent(SceneObject*);
+
+  friend class Scene;
+  friend class SceneEditor;
+
+}; // SceneObject
+
+/// Returns the transform of a component.
+inline Transform*
+Component::transform() const // declared in Component.h
+{
+  return sceneObject()->transform();
+}
+
+/// Returns the parent of a transform.
+inline Transform*
+Transform::parent() const // declared in Transform.h
+{
+  if (auto p = sceneObject()->parent())
+    return p->transform();
+  return nullptr;
+}
+
+} // end namespace cg::graph
+
+#endif // __SceneObject_h

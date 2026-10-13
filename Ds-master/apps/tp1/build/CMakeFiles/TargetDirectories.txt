@@ -1,0 +1,3 @@
+C:/Users/bibit/Downloads/Ds-master/Ds-master/apps/tp1/build/CMakeFiles/cgdemo.dir
+C:/Users/bibit/Downloads/Ds-master/Ds-master/apps/tp1/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/bibit/Downloads/Ds-master/Ds-master/apps/tp1/build/CMakeFiles/ZERO_CHECK.dir

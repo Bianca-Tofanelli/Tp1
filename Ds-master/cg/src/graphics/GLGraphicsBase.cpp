@@ -1,0 +1,212 @@
+//[]---------------------------------------------------------------[]
+//|                                                                 |
+//| Copyright (C) 2014, 2026 Paulo Pagliosa.                        |
+//|                                                                 |
+//| This software is provided 'as-is', without any express or       |
+//| implied warranty. In no event will the authors be held liable   |
+//| for any damages arising from the use of this software.          |
+//|                                                                 |
+//| Permission is granted to anyone to use this software for any    |
+//| purpose, including commercial applications, and to alter it and |
+//| redistribute it freely, subject to the following restrictions:  |
+//|                                                                 |
+//| 1. The origin of this software must not be misrepresented; you  |
+//| must not claim that you wrote the original software. If you use |
+//| this software in a product, an acknowledgment in the product    |
+//| documentation would be appreciated but is not required.         |
+//|                                                                 |
+//| 2. Altered source versions must be plainly marked as such, and  |
+//| must not be misrepresented as being the original software.      |
+//|                                                                 |
+//| 3. This notice may not be removed or altered from any source    |
+//| distribution.                                                   |
+//|                                                                 |
+//[]---------------------------------------------------------------[]
+//
+// OVERVIEW: GLGraphicsBase.cpp
+// ========
+// Source file for OpenGL graphics base.
+//
+// Author: Paulo Pagliosa
+// Last revision: 09/10/2026
+
+#include "graphics/GLGraphicsBase.h"
+
+namespace cg
+{ // begin namespace cg
+
+static const char* pointVertexShader = R"glsl(
+  #version 400
+  uniform vec4 p;
+  uniform vec4 pointColor;
+  out vec4 color;
+
+  void main()
+  {
+    gl_Position = p;
+    color = pointColor;
+  }
+)glsl";
+
+static const char* lineVertexShader = R"glsl(
+  #version 400
+  uniform vec4 p[2];
+  uniform vec4 vertexColors[2];
+  out vec4 color;
+
+  void main()
+  {
+    gl_Position = p[gl_VertexID];
+    color = vertexColors[gl_VertexID];
+  }
+)glsl";
+
+static const char* triangleVertexShader = R"glsl(
+  #version 400
+  uniform vec4 p[3];
+  uniform vec4 vertexColors[3];
+  out vec4 color;
+
+  void main()
+  {
+    gl_Position = p[gl_VertexID];
+    color = vertexColors[gl_VertexID];
+  }
+)glsl";
+
+static const char* quadVertexShader = R"glsl(
+  #version 400
+  uniform vec4 p[4];
+  uniform vec4 vertexColors[4];
+  out vec4 color;
+
+  void main()
+  {
+    gl_Position = p[gl_VertexID];
+    color = vertexColors[gl_VertexID];
+  }
+)glsl";
+
+static const char* fragmentShader = R"glsl(
+  #version 400
+  in vec4 color;
+  out vec4 fragmentColor;
+
+  void main()
+  {
+    fragmentColor = color;
+  }
+)glsl";
+
+
+/////////////////////////////////////////////////////////////////////
+//
+// GLGraphicsBase implementation
+// ==============
+GLGraphicsBase::GLGraphicsBase():
+  _pointDrawer{"Point Drawer"},
+  _lineDrawer{"Line Drawer"},
+  _triangleDrawer{"Triangle Drawer"},
+  _quadDrawer{"Quad Drawer"},
+  _polygonMode{LINE}
+{
+  using namespace GLSL;
+
+  _pointDrawer.setShaders(pointVertexShader, fragmentShader).use();
+  _pointLoc = _pointDrawer.uniformLocation("p");
+  _pointColorLoc = _pointDrawer.uniformLocation("pointColor");
+  _lineDrawer.setShaders(lineVertexShader, fragmentShader).use();
+  _linePointsLoc = _lineDrawer.uniformLocation("p[0]");
+  _lineColorsLoc = _lineDrawer.uniformLocation("vertexColors[0]");
+  _triangleDrawer.setShaders(triangleVertexShader, fragmentShader).use();
+  _trianglePointsLoc = _triangleDrawer.uniformLocation("p[0]");
+  _triangleColorsLoc = _triangleDrawer.uniformLocation("vertexColors[0]");
+  _quadDrawer.setShaders(quadVertexShader, fragmentShader).use();
+  _quadPointsLoc = _quadDrawer.uniformLocation("p[0]");
+  _quadColorsLoc = _quadDrawer.uniformLocation("vertexColors[0]");
+  glGenVertexArrays(1, &_vao);
+  setPointColor(Color::red);
+  setLineColor(Color::white);
+  setTriangleColor(Color::white);
+  setQuadColor(Color::white);
+  setPointSize(4);
+  setLineWidth(1);
+  setPolygonMode(FILL);
+}
+
+GLGraphicsBase::~GLGraphicsBase()
+{
+  glDeleteVertexArrays(1, &_vao);
+}
+
+void
+GLGraphicsBase::drawPoint(const vec4f* point)
+{
+  using namespace GLSL;
+
+  auto cp = Program::current();
+
+  _pointDrawer.use();
+  _pointDrawer.setUniformVec4(_pointColorLoc, _pointColor);
+  glUniform4fv(_pointLoc, 1, (float*)point);
+  glBindVertexArray(_vao);
+  glPointSize(_pointSize);
+  glDrawArrays(GL_POINTS, 0, 1);
+  Program::setCurrent(cp);
+}
+
+void
+GLGraphicsBase::drawLine(const vec4f* points)
+{
+  using namespace GLSL;
+
+  auto cp = Program::current();
+
+  _lineDrawer.use();
+  glUniform4fv(_lineColorsLoc, 2, (float*)_lineColors);
+  glUniform4fv(_linePointsLoc, 2, (float*)points);
+  glBindVertexArray(_vao);
+  glLineWidth(_lineWidth);
+  glDrawArrays(GL_LINES, 0, 2);
+  Program::setCurrent(cp);
+}
+
+void
+GLGraphicsBase::drawTriangle(const vec4f* points)
+{
+  using namespace GLSL;
+
+  auto cp = Program::current();
+
+  _triangleDrawer.use();
+  glBindVertexArray(_vao);
+  glUniform4fv(_triangleColorsLoc, 3, (float*)_triangleColors);
+  glUniform4fv(_trianglePointsLoc, 3, (float*)points);
+  glDrawArrays(GL_TRIANGLES, 0, 3);
+  Program::setCurrent(cp);
+}
+
+void
+GLGraphicsBase::drawQuad(const vec4f* points)
+{
+  using namespace GLSL;
+
+  auto cp = Program::current();
+
+  _quadDrawer.use();
+  glBindVertexArray(_vao);
+  glUniform4fv(_quadColorsLoc, 4, (float*)_quadColors);
+  glUniform4fv(_quadPointsLoc, 4, (float*)points);
+
+  glDrawArrays(_polygonMode == LINE ? GL_LINE_LOOP : GL_TRIANGLE_FAN, 0, 4);
+  Program::setCurrent(cp);
+}
+
+void
+GLGraphicsBase::setPolygonMode(PolygonMode mode)
+{
+  if (_polygonMode != mode)
+    glPolygonMode(GL_FRONT_AND_BACK, GLenum(_polygonMode = mode));
+}
+
+} // end namespace cg

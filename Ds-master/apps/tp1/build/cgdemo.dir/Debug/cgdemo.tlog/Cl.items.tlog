@@ -1,0 +1,14 @@
+C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\Main.cpp;C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\build\cgdemo.dir\Debug\Main.obj
+C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\Polyline.cpp;C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\build\cgdemo.dir\Debug\Polyline.obj
+C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\MainWindow.cpp;C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\build\cgdemo.dir\Debug\MainWindow.obj
+C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\RayTracer.cpp;C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\build\cgdemo.dir\Debug\RayTracer.obj
+C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\SceneWriter.cpp;C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\build\cgdemo.dir\Debug\SceneWriter.obj
+C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\Writer.cpp;C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\build\cgdemo.dir\Debug\Writer.obj
+C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\reader\AbstractParser.cpp;C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\build\cgdemo.dir\Debug\AbstractParser.obj
+C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\reader\Buffer.cpp;C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\build\cgdemo.dir\Debug\Buffer.obj
+C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\reader\ErrorHandler.cpp;C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\build\cgdemo.dir\Debug\ErrorHandler.obj
+C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\reader\Expression.cpp;C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\build\cgdemo.dir\Debug\Expression.obj
+C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\reader\FileBuffer.cpp;C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\build\cgdemo.dir\Debug\FileBuffer.obj
+C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\reader\ReaderBase.cpp;C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\build\cgdemo.dir\Debug\ReaderBase.obj
+C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\reader\SceneReader.cpp;C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\build\cgdemo.dir\Debug\SceneReader.obj
+C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\reader\Scope.cpp;C:\Users\bibit\Downloads\Ds-master\Ds-master\apps\tp1\build\cgdemo.dir\Debug\Scope.obj

@@ -1,0 +1,474 @@
+//[]---------------------------------------------------------------[]
+//|                                                                 |
+//| Copyright (C) 2014, 2026 Paulo Pagliosa.                        |
+//|                                                                 |
+//| This software is provided 'as-is', without any express or       |
+//| implied warranty. In no event will the authors be held liable   |
+//| for any damages arising from the use of this software.          |
+//|                                                                 |
+//| Permission is granted to anyone to use this software for any    |
+//| purpose, including commercial applications, and to alter it and |
+//| redistribute it freely, subject to the following restrictions:  |
+//|                                                                 |
+//| 1. The origin of this software must not be misrepresented; you  |
+//| must not claim that you wrote the original software. If you use |
+//| this software in a product, an acknowledgment in the product    |
+//| documentation would be appreciated but is not required.         |
+//|                                                                 |
+//| 2. Altered source versions must be plainly marked as such, and  |
+//| must not be misrepresented as being the original software.      |
+//|                                                                 |
+//| 3. This notice may not be removed or altered from any source    |
+//| distribution.                                                   |
+//|                                                                 |
+//[]---------------------------------------------------------------[]
+//
+// OVERVIEW: CUDAHelper.h
+// ========
+// Classes and functions for CUDA utilities.
+//
+// Author: Paulo Pagliosa
+// Last revision: 03/10/2026
+
+#ifndef __CUDAHelper_h
+#define __CUDAHelper_h
+
+#include "core/Globals.h"
+#include <iostream>
+#include <type_traits>
+#include <utility>
+
+namespace cg::cuda
+{ // begin namespace cg::cuda
+
+void error(const char*, ...);
+void checkError(cudaError_t, const char*, int);
+void checkLastError(const char*, const char*, int);
+
+#define checkCudaError(err) cuda::checkError(err, __FILE__, __LINE__)
+#define checkLastCudaError(msg) cuda::checkLastError(msg, __FILE__, __LINE__)
+
+inline void
+reset()
+{
+  cudaDeviceReset();
+}
+
+inline void
+initialize(int device = -1)
+{
+  int count;
+
+  checkCudaError(cudaGetDeviceCount(&count));
+  if (count == 0)
+    error("No devices supporting CUDA");
+  if (device < 0)
+    device = 0;
+  else if (device > count - 1)
+    error("Device %d is not a valid GPU.\n", device);
+
+  cudaDeviceProp deviceProp;
+
+  cudaGetDeviceProperties(&deviceProp, device);
+  if (deviceProp.major < 1)
+    error("Device %d does not support CUDA", device);
+  checkCudaError(cudaSetDevice(device));
+  printf("Using CUDA device %d: %s\n", device, deviceProp.name);
+}
+
+[[nodiscard]] inline int
+currentDevice()
+{
+  int device;
+
+  checkCudaError(cudaGetDevice(&device));
+  return device;
+}
+
+inline void
+synchronize()
+{
+  checkCudaError(cudaDeviceSynchronize());
+}
+
+inline void
+allocate_v(void*& ptr, size_t size)
+{
+  checkCudaError(cudaMalloc((void**)&ptr, size));
+}
+
+template <typename T>
+inline void
+allocate(T*& ptr, size_t count)
+{
+  allocate_v((void*&)ptr, count * sizeof(T));
+}
+
+inline void
+free_v(void* ptr)
+{
+  checkCudaError(cudaFree(ptr));
+}
+
+template <typename T>
+inline void
+free(T*& ptr)
+{
+  free_v((void*&)ptr);
+}
+
+inline void
+hostAllocate_v(void*& ptr,
+  size_t size,
+  unsigned int flags = cudaHostAllocDefault)
+{
+  checkCudaError(cudaHostAlloc((void**)&ptr, size, flags));
+}
+
+template <typename T>
+inline void
+hostAllocate(T*& ptr, size_t count, unsigned int flags = cudaHostAllocDefault)
+{
+  hostAllocate_v((void*&)ptr, count * sizeof(T), flags);
+}
+
+inline void
+freeHost_v(void* ptr)
+{
+  checkCudaError(cudaFreeHost(ptr));
+}
+
+template <typename T>
+inline void
+freeHost(T*& ptr)
+{
+  freeHost_v((void*&)ptr);
+}
+
+inline void
+copyToHost_v(void* dst, const void* src, size_t size)
+{
+  checkCudaError(cudaMemcpy(dst, src, size, cudaMemcpyDeviceToHost));
+}
+
+template <typename T>
+inline void
+copyToHost(T* dst, const T* src, size_t count)
+{
+  static_assert(std::is_trivially_copyable_v<T>);
+  copyToHost_v((void*)dst, (const void*)src, count * sizeof(T));
+}
+
+inline void
+copyToHostAsync_v(void* dst,
+  const void* src,
+  size_t size,
+  cudaStream_t stream = 0)
+{
+  checkCudaError(cudaMemcpyAsync(dst,
+    src,
+    size,
+    cudaMemcpyDeviceToHost,
+    stream));
+}
+
+template <typename T>
+inline void
+copyToHostAsync(T* dst, const T* src, size_t count, cudaStream_t stream = 0)
+{
+  static_assert(std::is_trivially_copyable_v<T>);
+  copyToHostAsync_v((void*)dst, (const void*)src, count * sizeof(T), stream);
+}
+
+inline void
+copyToDevice_v(void* dst, const void* src, size_t size)
+{
+  checkCudaError(cudaMemcpy(dst, src, size, cudaMemcpyHostToDevice));
+}
+
+template <typename T>
+inline void
+copyToDevice(T* dst, const T* src, size_t count)
+{
+  static_assert(std::is_trivially_copyable_v<T>);
+  copyToDevice_v((void*)dst, (const void*)src, count * sizeof(T));
+}
+
+template <typename T>
+inline void
+newCopyToDevice(T*& dst, const T* src, size_t n)
+{
+  allocate<T>(dst, n);
+  copyToDevice<T>(dst, src, n);
+}
+
+inline void
+copyToDeviceAsync_v(void* dst,
+  const void* src,
+  size_t size,
+  cudaStream_t stream = 0)
+{
+  checkCudaError(cudaMemcpyAsync(dst,
+    src,
+    size,
+    cudaMemcpyHostToDevice,
+    stream));
+}
+
+template <typename T>
+inline void
+copyToDeviceAsync(T* dst, const T* src, size_t count, cudaStream_t stream = 0)
+{
+  static_assert(std::is_trivially_copyable_v<T>);
+  copyToDeviceAsync_v((void*)dst, (const void*)src, count * sizeof(T), stream);
+}
+
+template <typename T>
+inline void
+newCopyToDeviceAsync(T*& dst, const T* src, size_t n, cudaStream_t stream = 0)
+{
+  allocate<T>(dst, n);
+  copyToDeviceAsync<T>(dst, src, n, stream);
+}
+
+inline void
+deviceCopy_v(void* dst, const void* src, size_t size)
+{
+  checkCudaError(cudaMemcpy(dst, src, size, cudaMemcpyDeviceToDevice));
+}
+
+template<typename T>
+inline void
+deviceCopy(T* dst, const T* src, size_t count)
+{
+  static_assert(std::is_trivially_copyable_v<T>);
+  deviceCopy_v((void*)dst, (const void*)src, count * sizeof(T));
+}
+
+inline void
+deviceCopyAsync_v(void* dst,
+  const void* src,
+  size_t size,
+  cudaStream_t stream = 0)
+{
+  checkCudaError(cudaMemcpyAsync(dst,
+    src,
+    size,
+    cudaMemcpyDeviceToDevice,
+    stream));
+}
+
+template<typename T>
+inline void
+deviceCopyAsync(T* dst, const T* src, size_t count, cudaStream_t stream = 0)
+{
+  static_assert(std::is_trivially_copyable_v<T>);
+  deviceCopyAsync_v((void*)dst, (const void*)src, count * sizeof(T), stream);
+}
+
+inline void
+deviceSet(void* ptr, int value, size_t size)
+{
+  checkCudaError(cudaMemset(ptr, value, size));
+}
+
+inline void
+deviceSetAsync(void* ptr, int value, size_t size, cudaStream_t stream = 0)
+{
+  checkCudaError(cudaMemsetAsync(ptr, value, size, stream));
+}
+
+inline void
+copyToSymbol_v(const void* dst,
+  const void* src,
+  size_t size,
+  size_t offset = 0)
+{
+  checkCudaError(cudaMemcpyToSymbol(dst, src, size, offset));
+}
+
+template <typename T>
+inline void
+copyToSymbol(const T* dst, const T* src, size_t count, size_t index = 0)
+{
+  static_assert(std::is_trivially_copyable_v<T>);
+  copyToSymbol_v((const void*)dst,
+    (const void*)src,
+    sizeof(T) * count,
+    sizeof(T) * index);
+}
+
+template <typename T>
+inline void
+copyToSymbol(const T& dst, const T& src)
+{
+  copyToSymbol<T>(&dst, &src, 1);
+}
+
+inline void
+copyFromSymbol_v(void* dst, const void* src, size_t size, size_t offset = 0)
+{
+  checkCudaError(cudaMemcpyFromSymbol(dst, src, size, offset));
+}
+
+template <typename T>
+inline void
+copyFromSymbol(T* dst, const T* src, size_t count, size_t index = 0)
+{
+  static_assert(std::is_trivially_copyable_v<T>);
+  copyFromSymbol_v((void*)dst,
+    (const void*)src,
+    sizeof(T) * count,
+    sizeof(T) * index);
+}
+
+template <typename T>
+inline void
+copyFromSymbol(T& dst, const T& src)
+{
+  copyFromSymbol<T>(&dst, &src, 1);
+}
+
+[[nodiscard]] inline void*
+address_v(const void* symbol)
+{
+  void* ptr;
+
+  checkCudaError(cudaGetSymbolAddress(&ptr, symbol));
+  return ptr;
+}
+
+template <typename T>
+[[nodiscard]] inline T*
+address(const T* symbol)
+{
+  return (T*)address_v(symbol);
+}
+
+template <typename T>
+void
+dump(const char* s, const T* data, size_t count, std::ostream& os = std::cout)
+{
+  auto hData = new T[count];
+
+  copyToHost<T>(hData, data, count);
+  os << s << ": ";
+  for (size_t i = 0; i < count; ++i)
+    os << hData[i] << ' ';
+  os << '\n';
+  delete []hData;
+}
+
+
+/////////////////////////////////////////////////////////////////////
+//
+// Buffer: CUDA buffer class
+// ======
+template <typename T>
+class Buffer
+{
+public:
+  static_assert(std::is_trivially_copyable_v<T>);
+
+  using value_type = T;
+
+  ~Buffer()
+  {
+    free<T>(_data);
+    _size = 0;
+  }
+
+  Buffer() = default;
+
+  Buffer(size_t size, const T* hData = nullptr)
+  {
+#ifdef _DEBUG
+    if (size == 0)
+      throw std::logic_error("cuda::Buffer ctor: bad size");
+#endif // _DEBUG
+    allocate<T>(_data, _size = size);
+    if (hData != nullptr)
+      copyToDevice<T>(_data, hData, size);
+  }
+
+  Buffer(const Buffer<T>&) = delete;
+  Buffer<T>& operator =(const Buffer<T>&) = delete;
+
+  Buffer(Buffer<T>&& other) noexcept:
+    _data{std::exchange(other._data, nullptr)},
+    _size{std::exchange(other._size, 0)}
+  {
+    // do nothing
+  }
+
+  void copy(const T*, const T*, size_t);
+
+  void fill(const T&, size_t, size_t);
+
+  void zero()
+  {
+    deviceSet(_data, 0, _size * sizeof(T));
+  }
+
+  Buffer<T>& operator =(Buffer<T>&& other) noexcept
+  {
+    free<T>(_data);
+    _data = std::exchange(other._data, nullptr);
+    _size = std::exchange(other._size, 0);
+    return *this;
+  }
+
+  [[nodiscard]] auto size() const
+  {
+    return _size;
+  }
+
+  [[nodiscard]] operator const value_type*() const
+  {
+    return _data;
+  }
+
+  [[nodiscard]] operator value_type*()
+  {
+    return _data;
+  }
+
+  void dump(const char* s, std::ostream& os = std::cout) const
+  {
+    cuda::dump<T>(s, _data, _size, os);
+  }
+
+private:
+  value_type* _data{};
+  size_t _size{};
+
+}; // Buffer
+
+template <typename T>
+void
+Buffer<T>::copy(const T* hBegin, const T* hEnd, size_t offset)
+{
+  auto length = static_cast<uint32_t>(hEnd - hBegin);
+
+  if (offset + length > _size)
+    throw std::logic_error("cuda::Buffer copy: bad range");
+  copyToDevice<T>(_data + offset, hBegin, length);
+}
+
+template <typename T>
+void
+Buffer<T>::fill(const T& value, size_t offset, size_t length)
+{
+  if (offset + length > _size)
+    throw std::logic_error("cuda::Buffer fill: bad range");
+
+  auto* hData = new T[length];
+
+  std::fill(hData, hData + length, value);
+  copyToDevice<T>(_data + offset, hData, length);
+  delete []hData;
+}
+
+} // end namespace cg::cuda
+
+#endif // __CUDAHelper_h

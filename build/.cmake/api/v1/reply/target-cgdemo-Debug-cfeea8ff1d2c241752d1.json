@@ -37,13 +37,13 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 34,
+				"line" : 35,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 33,
+				"line" : 34,
 				"parent" : 0
 			},
 			{
@@ -65,7 +65,7 @@
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 40,
+				"line" : 41,
 				"parent" : 0
 			}
 		]
@@ -140,7 +140,8 @@
 				11,
 				12,
 				13,
-				14
+				14,
+				15
 			]
 		}
 	],
@@ -222,7 +223,8 @@
 				11,
 				12,
 				13,
-				14
+				14,
+				15
 			]
 		},
 		{
@@ -250,6 +252,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "Polyline.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "HelixProxy.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

@@ -13,8 +13,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 add_executable(cgdemo
   Main.cpp
-  Polyline.h
   Polyline.cpp
+  HelixProxy.cpp
   MainWindow.cpp
   RayTracer.cpp
   SceneWriter.cpp

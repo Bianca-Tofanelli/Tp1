@@ -39,7 +39,6 @@
 #include "RayTracer.h"
 #include "HelixProxy.h"
 
-
 namespace cg::graph
 { // begin namespace cg::graph
 
@@ -92,7 +91,6 @@ private:
   bool onResize(int width, int height) override;
   Component* addComponentMenu(const SceneObject&) override;
   void createObjectMenu() override;
-
 
   void mainMenu();
   void fileMenu();

@@ -89,14 +89,15 @@ initializeFonts()
   fonts->Build();
 }
 
-void
-MainWindow::beginInitialize()
+void MainWindow::beginInitialize()
 {
   initializeFonts();
   buildDefaultMeshes();
   Assets::initialize();
   Assets::meshes().insert(_defaultMeshes.begin(), _defaultMeshes.end());
   _sceneFolder = AssetFolder::New("scenes/", ".scn");
+
+  registerInspectFunction(inspectHelix);
 }
 
 void MainWindow::createObjectMenu()
@@ -406,4 +407,15 @@ MainWindow::onResize(int width, int height)
   _viewMode = ViewMode::Editor;
   _image = nullptr;
   return true;
+}
+
+// Implementação das funções estáticas de inspeção
+void MainWindow::inspectHelix(SceneWindow& window, HelixProxy& proxy)
+{
+  proxy.inspect(window);
+}
+
+void MainWindow::inspectSweepMesh(SceneWindow& window, SweepMeshProxy& proxy)
+{
+  // Reservado para o SweepMeshProxy (A5)
 }

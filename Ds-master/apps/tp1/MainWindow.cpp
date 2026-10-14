@@ -35,6 +35,7 @@
 #include "reader/SceneReader.h"
 #include "SceneWriter.h"
 #include "MainWindow.h"
+#include "HelixProxy.h"
 #include "IconsFontAwesome7.h"
 
 
@@ -112,6 +113,11 @@ void MainWindow::createObjectMenu()
       createDefaultPrimitiveObject("Cone");
     if (ImGui::MenuItem("Plane"))
       createDefaultPrimitiveObject("Plane");
+
+    ImGui::Separator();
+    if (ImGui::MenuItem("Espiral (Helix)"))
+      createHelixObject();
+
     ImGui::EndMenu();
   }
 }
@@ -136,6 +142,13 @@ MainWindow::addComponentMenu(const SceneObject&)
     ImGui::EndMenu();
   }
   return component;
+}
+
+void MainWindow::createHelixObject()
+{
+  auto object = createObject("Helix", nullptr);
+  auto proxy = new HelixProxy{};
+  object->addComponent(proxy);
 }
 
 void

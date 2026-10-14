@@ -37,6 +37,8 @@
 #include "graphics/AssetFolder.h"
 #include "graphics/GLImage.h"
 #include "RayTracer.h"
+#include "HelixProxy.h"
+
 
 namespace cg::graph
 { // begin namespace cg::graph
@@ -64,6 +66,7 @@ public:
   }
 
 private:
+  void createHelixObject();
   AssetFolderRef _sceneFolder;
   Reference<RayTracer> _rayTracer;
   Reference<GLImage> _image;

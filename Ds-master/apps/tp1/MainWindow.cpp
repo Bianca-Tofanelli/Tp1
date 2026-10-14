@@ -89,7 +89,8 @@ initializeFonts()
   fonts->Build();
 }
 
-void MainWindow::beginInitialize()
+void
+MainWindow::beginInitialize()
 {
   initializeFonts();
   buildDefaultMeshes();
@@ -97,6 +98,7 @@ void MainWindow::beginInitialize()
   Assets::meshes().insert(_defaultMeshes.begin(), _defaultMeshes.end());
   _sceneFolder = AssetFolder::New("scenes/", ".scn");
 
+  // Registra a função de inspeção da Espiral (HelixProxy)
   registerInspectFunction(inspectHelix);
 }
 
@@ -409,7 +411,6 @@ MainWindow::onResize(int width, int height)
   return true;
 }
 
-// Implementação das funções estáticas de inspeção
 void MainWindow::inspectHelix(SceneWindow& window, HelixProxy& proxy)
 {
   proxy.inspect(window);
@@ -417,5 +418,4 @@ void MainWindow::inspectHelix(SceneWindow& window, HelixProxy& proxy)
 
 void MainWindow::inspectSweepMesh(SceneWindow& window, SweepMeshProxy& proxy)
 {
-  // Reservado para o SweepMeshProxy (A5)
 }

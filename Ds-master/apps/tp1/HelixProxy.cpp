@@ -1,26 +1,37 @@
 #include "HelixProxy.h"
-#include "graph/SceneWindow.h"
 #include "graphics/Assets.h"
 #include <cmath>
 #include <algorithm>
+#include <utility>
 
 namespace cg::graph
 {
 
 constexpr float PI = 3.14159265358979323846f;
 
-HelixProxy::HelixProxy()
+// Função auxiliar para criar uma malha inicial vazia para o TriangleMeshMapper
+inline TriangleMesh& createInitialMesh()
 {
-  // Configura a geratriz e gera a malha inicial
+  TriangleMesh::Data data{};
+  data.vertexCount = 0;
+  data.triangleCount = 0;
+  data.vertices = nullptr;
+  data.vertexNormals = nullptr;
+  data.triangles = nullptr;
+  return *new TriangleMesh{std::move(data)};
+}
+
+// Passa a malha inicial para o construtor do TriangleMeshMapper (resolve o erro 289)
+HelixProxy::HelixProxy():
+  PrimitiveProxy{*new TriangleMeshMapper{createInitialMesh()}}
+{
   m_polyline.update(m_polylineParams);
   updateMesh();
 }
 
 void HelixProxy::updateMesh()
 {
-  // 1. Atualiza os pontos da geratriz
   m_polyline.update(m_polylineParams);
-  // 2. Constrói a malha de triângulos 3D da espiral
   buildSpiralMesh();
 }
 
@@ -30,29 +41,36 @@ void HelixProxy::buildSpiralMesh()
   int np = static_cast<int>(polyPoints.size());
   if (np < 2) return;
 
-  // Caixa envolvente (AABB) da geratriz
   float bx = 0.0f, by = 0.0f;
   m_polyline.getBoundingBox(bx, by);
 
-  // Clamping dos parâmetros dentro das faixas limites do roteiro
   float we = std::max(m_helixParams.initialWidth, 2.0f * bx);
   float re = std::clamp(m_helixParams.revolutions, 0.1f, 20.0f);
   int nes = std::clamp(m_helixParams.subdivisions, 3, 40);
   float dh = std::clamp(m_helixParams.deltaHeight, 0.0f, 10.0f);
   float dw = std::clamp(m_helixParams.deltaWidth, 0.0f, 10.0f);
 
-  // Número total de rotações e passos da geratriz
   int ner = std::max(static_cast<int>(std::floor(re + 0.5f)), 1) * nes;
   int numSteps = ner + 1;
   float totalAngleRad = (360.0f * re) * (PI / 180.0f);
 
-  float de = (we - bx) * 0.5f; // Distância inicial ao eixo de rotação
+  float de = (we - bx) * 0.5f;
   float totalDeltaH = re * dh;
   float totalDeltaW = re * dw;
 
-  auto mesh = new TriangleMesh();
+  int vertexCount = numSteps * np;
+  int segments = m_polyline.isClosed() ? np : np - 1;
+  int triangleCount = 2 * ner * segments;
 
-  // Construção dos Vértices da varredura
+  TriangleMesh::Data data{};
+  data.vertexCount = vertexCount;
+  data.triangleCount = triangleCount;
+  data.vertices = new vec3f[vertexCount];
+  data.vertexNormals = nullptr;
+  data.triangles = new TriangleMesh::Triangle[triangleCount];
+
+  // 1. Preenchimento dos Vértices da Espiral
+  int vIdx = 0;
   for (int k = 0; k < numSteps; ++k)
   {
     float factor = static_cast<float>(k) / static_cast<float>(ner);
@@ -66,22 +84,21 @@ void HelixProxy::buildSpiralMesh()
     for (int i = 0; i < np; ++i)
     {
       const vec3& p = polyPoints[i];
-      // Posição no referencial da espiral (rotação em torno de Y e translações em X/Y)
       float x = (p.x + currentW) * cosA + p.z * sinA;
       float y = p.y + currentH;
       float z = -(p.x + currentW) * sinA + p.z * cosA;
 
-      mesh->vertices.push_back(vec3(x, y, z));
+      data.vertices[vIdx++] = vec3f{x, y, z};
     }
   }
 
-  // Conexão dos Triângulos entre passos adjacentes
+  // 2. Preenchimento dos Triângulos da Malha
+  int tIdx = 0;
   for (int k = 0; k < ner; ++k)
   {
     int offsetCurr = k * np;
     int offsetNext = (k + 1) * np;
 
-    int segments = m_polyline.isClosed() ? np : np - 1;
     for (int i = 0; i < segments; ++i)
     {
       int iNext = (i + 1) % np;
@@ -91,19 +108,17 @@ void HelixProxy::buildSpiralMesh()
       int v2 = offsetNext + i;
       int v3 = offsetNext + iNext;
 
-      // 2 triângulos por quad da malha
-      mesh->triangles.push_back({v0, v1, v2});
-      mesh->triangles.push_back({v1, v3, v2});
+      data.triangles[tIdx++].setVertices(v0, v1, v2);
+      data.triangles[tIdx++].setVertices(v1, v3, v2);
     }
   }
 
-  // Cálculo automático das normais para iluminação
+  auto mesh = new TriangleMesh{std::move(data)};
   mesh->computeNormals();
 
-  // Define a nova malha no mapeador do primitivo
-  if (auto mapper = triangleMeshMapper())
+  if (auto m = mapper())
   {
-    mapper->setMesh(mesh);
+    m->setMesh(*mesh);
   }
 }
 
@@ -172,21 +187,6 @@ bool HelixProxy::inspect(SceneWindow& window)
     }
     if (ImGui::Checkbox("Tampas nas Pontas", &m_helixParams.makeCaps)) {
       changed = true;
-    }
-  }
-
-  // Exportação para formato OBJ (Tarefa A6)
-  ImGui::Separator();
-  ImGui::InputText("Nome Asset", m_meshName, sizeof(m_meshName));
-  if (ImGui::Button("Salvar como .OBJ"))
-  {
-    if (auto mapper = triangleMeshMapper())
-    {
-      if (auto mesh = mapper->mesh())
-      {
-        std::string path = "assets/meshes/" + std::string(m_meshName) + ".obj";
-        // Lógica de salvar o arquivo OBJ
-      }
     }
   }
 

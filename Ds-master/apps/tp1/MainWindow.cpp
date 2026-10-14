@@ -98,8 +98,7 @@ MainWindow::beginInitialize()
   _sceneFolder = AssetFolder::New("scenes/", ".scn");
 }
 
-void
-MainWindow::createObjectMenu()
+void MainWindow::createObjectMenu()
 {
   if (ImGui::BeginMenu("3D Object"))
   {
@@ -142,8 +141,7 @@ MainWindow::addComponentMenu(const SceneObject&)
 void
 MainWindow::openSceneCommand()
 {
-  if (ImGui::BeginListBox("##SceneList",
-    ImVec2{180, 8 * ImGui::GetTextLineHeightWithSpacing()}))
+  if (ImGui::BeginListBox("##SceneList", ImVec2{180, 8 * ImGui::GetTextLineHeightWithSpacing()}))
   {
     for (auto& file : _sceneFolder->files())
       if (ImGui::Selectable(file->filename().c_str()))
@@ -336,12 +334,14 @@ MainWindow::gui()
   constexpr auto top = (float)23;
   auto w = (float)width();
   auto h = (float)height();
+  
   auto evy = h - evh;
 
   // Hierarchy Window
   ImGui::SetNextWindowPos({lft, top});
   ImGui::SetNextWindowSize({evw, evy - top});
   hierarchyWindow();
+
   // Editor View
   ImGui::SetNextWindowPos({lft, evy});
   ImGui::SetNextWindowSize({evw, evh});
@@ -356,6 +356,7 @@ MainWindow::gui()
   ImGui::SetNextWindowPos({rgt, top});
   ImGui::SetNextWindowSize({iww, awy - top});
   inspectorWindow();
+
   // Assets Window
   ImGui::SetNextWindowPos({rgt, awy});
   ImGui::SetNextWindowSize({iww, awh});
@@ -389,7 +390,6 @@ MainWindow::renderScene()
 bool
 MainWindow::onResize(int width, int height)
 {
-
   _viewMode = ViewMode::Editor;
   _image = nullptr;
   return true;

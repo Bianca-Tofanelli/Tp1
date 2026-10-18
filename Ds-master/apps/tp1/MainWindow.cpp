@@ -36,6 +36,7 @@
 #include "SceneWriter.h"
 #include "MainWindow.h"
 #include "HelixProxy.h"
+#include "SweepMeshProxy.h"
 #include "IconsFontAwesome7.h"
 
 
@@ -98,8 +99,9 @@ MainWindow::beginInitialize()
   Assets::meshes().insert(_defaultMeshes.begin(), _defaultMeshes.end());
   _sceneFolder = AssetFolder::New("scenes/", ".scn");
 
-  // Registra a função de inspeção da Espiral (HelixProxy)
+  // Registra as funções de inspeção da Espiral e da Varredura
   registerInspectFunction(inspectHelix);
+  registerInspectFunction(inspectSweepMesh);
 }
 
 void MainWindow::createObjectMenu()
@@ -118,8 +120,16 @@ void MainWindow::createObjectMenu()
       createDefaultPrimitiveObject("Plane");
 
     ImGui::Separator();
+    
     if (ImGui::MenuItem("Espiral (Helix)"))
       createHelixObject();
+      
+    if (ImGui::MenuItem("Varredura (Sweep)"))
+    {
+      auto object = createObject("SweepMesh", nullptr);
+      auto proxy = new SweepMeshProxy{};
+      object->addComponent(proxy);
+    }
 
     ImGui::EndMenu();
   }
@@ -418,4 +428,5 @@ void MainWindow::inspectHelix(SceneWindow& window, HelixProxy& proxy)
 
 void MainWindow::inspectSweepMesh(SceneWindow& window, SweepMeshProxy& proxy)
 {
+  proxy.inspect(window);
 }

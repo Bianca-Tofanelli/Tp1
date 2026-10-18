@@ -389,6 +389,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\Polyline.cpp" />
     <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\HelixProxy.cpp" />
     <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\MainWindow.cpp" />
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\SweepMeshProxy.cpp" />
     <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\RayTracer.cpp" />
     <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\SceneWriter.cpp" />
     <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\Writer.cpp" />

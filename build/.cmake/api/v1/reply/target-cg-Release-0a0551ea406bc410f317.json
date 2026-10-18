@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/cg/lib/cgD.lib"
+			"path" : "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/cg/lib/cg.lib"
 		}
 	],
 	"backtrace" : 3,
@@ -28,7 +28,7 @@
 			{
 				"command" : 1,
 				"file" : 1,
-				"line" : 33,
+				"line" : 34,
 				"parent" : 0
 			},
 			{
@@ -82,7 +82,7 @@
 	],
 	"local" : true,
 	"name" : "cg",
-	"nameOnDisk" : "cgD.lib",
+	"nameOnDisk" : "cg.lib",
 	"paths" : 
 	{
 		"build" : ".",

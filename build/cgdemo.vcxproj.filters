@@ -13,6 +13,9 @@
     <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\MainWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\SweepMeshProxy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Ds-master\apps\tp1\RayTracer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

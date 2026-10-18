@@ -37,13 +37,13 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 34,
+				"line" : 35,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 33,
+				"line" : 34,
 				"parent" : 0
 			},
 			{
@@ -65,7 +65,7 @@
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 40,
+				"line" : 41,
 				"parent" : 0
 			}
 		]
@@ -88,7 +88,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++20 -MDd"
+					"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /O1 /Ob1 /DNDEBUG -std:c++20 -MD"
 				},
 				{
 					"backtrace" : 7,
@@ -141,7 +141,8 @@
 				11,
 				12,
 				13,
-				14
+				14,
+				15
 			]
 		}
 	],
@@ -157,11 +158,11 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd",
+				"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /O1 /Ob1 /DNDEBUG -MD",
 				"role" : "flags"
 			},
 			{
-				"fragment" : "/machine:x64 /debug /INCREMENTAL",
+				"fragment" : "/machine:x64 /INCREMENTAL:NO",
 				"role" : "flags"
 			},
 			{
@@ -170,7 +171,7 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\cg\\lib\\cgD.lib",
+				"fragment" : "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\cg\\lib\\cg.lib",
 				"role" : "libraries"
 			},
 			{
@@ -224,7 +225,8 @@
 				11,
 				12,
 				13,
-				14
+				14,
+				15
 			]
 		}
 	],
@@ -252,6 +254,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "MainWindow.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "SweepMeshProxy.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

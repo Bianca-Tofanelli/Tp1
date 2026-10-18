@@ -16,6 +16,7 @@ add_executable(cgdemo
   Polyline.cpp
   HelixProxy.cpp
   MainWindow.cpp
+  SweepMeshProxy.cpp
   RayTracer.cpp
   SceneWriter.cpp
   Writer.cpp

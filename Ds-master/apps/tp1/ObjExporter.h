@@ -2,19 +2,34 @@
 #define __ObjExporter_h
 
 #include "geometry/TriangleMesh.h"
+#include "graphics/Application.h"
 #include <string>
 #include <fstream>
-#include <iostream>
+#include <Windows.h> // Inclui os Popups do Windows!
 
 namespace cg {
 
 inline bool exportMeshToOBJ(const TriangleMesh& mesh, const std::string& meshName) {
-    // Caminho exato apontando para a pasta tp1 baseada na raiz do terminal
-    std::string filepath = "apps/tp1/assets/meshes/" + meshName + ".obj";
-    std::ofstream file(filepath);
+    // 1. Tenta usar o caminho oficial do professor
+    std::string filename = "meshes/" + meshName + ".obj";
+    std::string filepath = Application::assetFilePath(filename.c_str());
+    std::ofstream file(filepath.c_str());
     
+    // 2. Se o Windows/OneDrive bloquear, tenta forçar o caminho local
     if (!file.is_open()) {
-        std::cerr << "Erro: Nao foi possivel salvar o arquivo em: " << filepath << std::endl;
+        filepath = "apps/tp1/assets/meshes/" + meshName + ".obj";
+        file.open(filepath.c_str());
+    }
+    
+    // 3. Em último recurso de emergência, salva na mesma pasta do executável
+    if (!file.is_open()) {
+        filepath = meshName + ".obj";
+        file.open(filepath.c_str());
+    }
+
+    // Se tudo falhar, exibe uma mensagem de erro na tela
+    if (!file.is_open()) {
+        MessageBoxA(NULL, "Erro: O Windows ou o OneDrive bloqueou a criacao do arquivo!", "Falha na Exportacao", MB_ICONERROR | MB_OK);
         return false;
     }
 
@@ -45,7 +60,11 @@ inline bool exportMeshToOBJ(const TriangleMesh& mesh, const std::string& meshNam
     }
 
     file.close();
-    std::cout << "\nSUCESSO! O arquivo OBJ foi salvo em: " << filepath << std::endl;
+    
+    // POPUP DE SUCESSO! Aparecerá no meio da tela com o caminho exato
+    std::string mensagem = "Arquivo OBJ criado e salvo com sucesso em:\n\n" + filepath;
+    MessageBoxA(NULL, mensagem.c_str(), "Sucesso!", MB_ICONINFORMATION | MB_OK);
+    
     return true;
 }
 

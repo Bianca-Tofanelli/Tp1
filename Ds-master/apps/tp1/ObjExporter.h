@@ -2,7 +2,6 @@
 #define __ObjExporter_h
 
 #include "geometry/TriangleMesh.h"
-#include "graphics/Application.h" 
 #include <string>
 #include <fstream>
 #include <iostream>
@@ -10,16 +9,12 @@
 namespace cg {
 
 inline bool exportMeshToOBJ(const TriangleMesh& mesh, const std::string& meshName) {
-    // 1. Juntamos os textos primeiro
-    std::string filename = "meshes/" + meshName + ".obj";
-    
-    // 2. Passamos com .c_str() para agradar a função do professor
-    std::string filepath = Application::assetFilePath(filename.c_str());
-    
+    // Caminho exato apontando para a pasta tp1 baseada na raiz do terminal
+    std::string filepath = "apps/tp1/assets/meshes/" + meshName + ".obj";
     std::ofstream file(filepath);
     
     if (!file.is_open()) {
-        std::cerr << "Erro: Nao foi possivel salvar o arquivo em: " << filepath << "\n";
+        std::cerr << "Erro: Nao foi possivel salvar o arquivo em: " << filepath << std::endl;
         return false;
     }
 
@@ -50,7 +45,7 @@ inline bool exportMeshToOBJ(const TriangleMesh& mesh, const std::string& meshNam
     }
 
     file.close();
-    std::cout << "\nSUCESSO! O arquivo OBJ foi salvo em: " << filepath << "\n";
+    std::cout << "\nSUCESSO! O arquivo OBJ foi salvo em: " << filepath << std::endl;
     return true;
 }
 

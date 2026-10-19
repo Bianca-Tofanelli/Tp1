@@ -36,6 +36,7 @@ public:
   Parameters& helixParams() { return m_helixParams; }
 
 private:
+char m_meshName[64] = "MinhaEspiral";
   Polyline m_polyline;
   Polyline::Parameters m_polylineParams;
   Parameters m_helixParams;

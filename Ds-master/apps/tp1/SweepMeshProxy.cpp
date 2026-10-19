@@ -3,6 +3,7 @@
 #include "graphics/Assets.h"
 #include <cmath>
 #include <algorithm>
+#include "ObjExporter.h"
 
 namespace cg::graph
 {
@@ -227,6 +228,17 @@ bool SweepMeshProxy::inspect(SceneWindow& window)
   {
     updateMesh();
   }
+
+  // --- CÓDIGO DO BOTÃO DE SALVAR (TAREFA A6) ---
+  ImGui::Separator();
+  ImGui::InputText("Nome do Arquivo", m_meshName, IM_ARRAYSIZE(m_meshName));
+  if (ImGui::Button("Salvar malha em .OBJ"))
+  {
+    if (auto m = mapper()->mesh()) {
+      cg::exportMeshToOBJ(*m, m_meshName);
+    }
+  }
+  // ---------------------------------------------
 
   return changed;
 }

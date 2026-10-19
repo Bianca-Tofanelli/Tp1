@@ -3,7 +3,7 @@
 #include <cmath>
 #include <algorithm>
 #include <utility>
-
+#include "ObjExporter.h"
 namespace cg::graph
 {
 
@@ -44,6 +44,7 @@ void HelixProxy::buildSpiralMesh()
   float bx = 0.0f, by = 0.0f;
   m_polyline.getBoundingBox(bx, by);
 
+  // OPERADORES DE MULTIPLICAÇÃO E SUBTRAÇÃO CORRIGIDOS
   float we = std::max(m_helixParams.initialWidth, 2.0f * bx);
   float re = std::clamp(m_helixParams.revolutions, 0.1f, 20.0f);
   int nes = std::clamp(m_helixParams.subdivisions, 3, 40);
@@ -121,7 +122,6 @@ void HelixProxy::buildSpiralMesh()
     m->setMesh(*mesh);
   }
 }
-
 bool HelixProxy::inspect(SceneWindow& window)
 {
   bool changed = false;
@@ -194,8 +194,19 @@ bool HelixProxy::inspect(SceneWindow& window)
   {
     updateMesh();
   }
+// --- CÓDIGO DO BOTÃO DE SALVAR (TAREFA A6) ---
+  ImGui::Separator();
+  ImGui::InputText("Nome do Arquivo", m_meshName, IM_ARRAYSIZE(m_meshName));
+  if (ImGui::Button("Salvar malha em .OBJ"))
+  {
+    if (auto m = mapper()->mesh()) {
+      cg::exportMeshToOBJ(*m, m_meshName);
+    }
+  }
+  // ---------------------------------------------
 
   return changed;
 }
+  
 
 } // namespace cg::graph

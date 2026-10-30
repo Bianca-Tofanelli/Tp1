@@ -9,11 +9,9 @@
 namespace cg {
 
 inline bool exportMeshToOBJ(const TriangleMesh& mesh, const std::string& meshName) {
-    // Utiliza o caminho correto para a pasta tp1/assets/meshes
     std::string filepath = "apps/tp1/assets/meshes/" + meshName + ".obj";
     std::ofstream file(filepath.c_str());
     
-    // Se falhar (por ex: a pasta não existir), salva na raiz para não dar erro
     if (!file.is_open()) {
         filepath = meshName + ".obj";
         file.open(filepath.c_str());
@@ -52,12 +50,11 @@ inline bool exportMeshToOBJ(const TriangleMesh& mesh, const std::string& meshNam
 
     file.close();
     
-    // Mensagem de sucesso impressa silenciosamente no terminal do sistema
     std::cout << "Sucesso! Arquivo OBJ exportado para: " << filepath << std::endl;
     
     return true;
 }
 
-} // namespace cg
+} 
 
-#endif // __ObjExporter_h
+#endif 

@@ -14,17 +14,16 @@ class HelixProxy: public PrimitiveProxy
 public:
   struct Parameters
   {
-    float initialWidth = 4.0f;    // we: largura inicial
-    float revolutions = 1.0f;     // re: número de revoluções
-    int subdivisions = 16;        // n_e^s: subdivisões por revolução
-    float deltaHeight = 0.0f;     // delta_e^h: incremento de altura
-    float deltaWidth = 0.0f;      // delta_e^w: incremento de largura
-    bool makeCaps = true;         // tampas nas extremidades
+    float initialWidth = 4.0f;    
+    float revolutions = 1.0f;     
+    int subdivisions = 16;        
+    float deltaHeight = 0.0f;     
+    float deltaWidth = 0.0f;      
+    bool makeCaps = true;        
   };
 
   HelixProxy();
 
-  // Retorna o mapeador da malha de triângulos
   TriangleMeshMapper* mapper() const
   {
     return static_cast<TriangleMeshMapper*>(PrimitiveProxy::mapper());
@@ -39,11 +38,11 @@ private:
   Polyline m_polyline;
   Polyline::Parameters m_polylineParams;
   Parameters m_helixParams;
-  char m_meshName[64] = "HelixMesh"; // Garanta que só existe UMA linha destas!
+  char m_meshName[64] = "HelixMesh";
 
   void buildSpiralMesh();
 };
 
-} // namespace cg::graph
+} 
 
-#endif // __HelixProxy_h
+#endif 

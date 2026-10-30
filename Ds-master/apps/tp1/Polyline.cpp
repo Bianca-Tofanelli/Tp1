@@ -7,7 +7,7 @@ namespace cg {
 constexpr float PI = 3.14159265358979323846f;
 
 Polyline::Polyline() {
-    m_points.reserve(80); // Reserva capacidade estática máxima para até 80 pontos
+    m_points.reserve(80); 
 }
 
 void Polyline::update(const Parameters& params) {
@@ -35,13 +35,12 @@ void Polyline::update(const Parameters& params) {
 }
 
 void Polyline::buildRegularPolygon(int np) {
-    // P0 = (0, 1, 0)
-    // Pi obtido girando P0 em torno de Z de (360 / np) * i
+    
     float stepAngle = (2.0f * PI) / static_cast<float>(np);
 
     for (int i = 0; i < np; ++i) {
         float a = stepAngle * static_cast<float>(i);
-        // Rotação no plano XY
+        
         float x = -std::sin(a);
         float y = std::cos(a);
         m_points.push_back(vec3(x, y, 0.0f));
@@ -59,7 +58,7 @@ void Polyline::buildCircularArc(int nc, float arcAngleDeg, bool isClosed) {
     m_isClosed = isClosed;
 
     float arcAngleRad = arcAngleDeg * (PI / 180.0f);
-    float startAngle = (PI - arcAngleRad) / 2.0f; // Simetria em relação ao eixo Y (plano YZ)
+    float startAngle = (PI - arcAngleRad) / 2.0f;
     float stepAngle = arcAngleRad / static_cast<float>(nc);
 
     for (int i = 0; i < np; ++i) {
@@ -86,11 +85,11 @@ void Polyline::applyTransformations(float scale, float rotationAngleDeg) {
     float sinA = std::sin(rotRad);
 
     for (auto& p : m_points) {
-        // 1. Escala (sp, sp, 1)
+        
         p.x *= scale;
         p.y *= scale;
 
-        // 2. Rotação em torno do eixo Z
+        
         float rx = p.x * cosA - p.y * sinA;
         float ry = p.x * sinA + p.y * cosA;
 
@@ -119,4 +118,4 @@ void Polyline::getBoundingBox(float& bx, float& by) const {
     by = maxY - minY;
 }
 
-} // namespace cg
+} 

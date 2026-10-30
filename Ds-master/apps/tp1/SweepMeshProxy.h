@@ -14,14 +14,14 @@ class SweepMeshProxy: public PrimitiveProxy
 public:
   struct Parameters
   {
-    float length = 10.0f;      // lv: comprimento
-    float offsetW = 0.0f;      // ov_w: deslocamento horizontal
-    float offsetH = 0.0f;      // ov_h: deslocamento vertical
-    int subdivisions = 10;     // nv_s: número de subdivisões da varredura
-    float scaleBegin = 1.0f;   // sv_b: escala inicial
-    float scaleEnd = 1.0f;     // sv_e: escala final
-    float twist = 0.0f;        // rv: torção (revoluções em Z)
-    bool makeCaps = true;      // tampas nas extremidades
+    float length = 10.0f;      
+    float offsetW = 0.0f;      
+    float offsetH = 0.0f;      
+    int subdivisions = 10;     
+    float scaleBegin = 1.0f;  
+    float scaleEnd = 1.0f;     
+    float twist = 0.0f;        
+    bool makeCaps = true;      
   };
 
   SweepMeshProxy();
@@ -46,6 +46,6 @@ private:
   void buildSweepMesh();
 };
 
-} // namespace cg::graph
+} 
 
-#endif // __SweepMeshProxy_h
+#endif 

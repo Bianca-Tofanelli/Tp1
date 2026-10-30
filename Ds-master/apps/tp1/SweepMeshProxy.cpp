@@ -43,7 +43,7 @@ void SweepMeshProxy::buildSweepMesh()
   float bx = 0.0f, by = 0.0f;
   m_polyline.getBoundingBox(bx, by);
 
-  // Utilização segura de std::max e std::min em vez de std::clamp (C++14 safe)
+ 
   float lv = std::max(1.0f, std::min(m_sweepParams.length, 50.0f));
   float ovw = std::max(-bx, std::min(m_sweepParams.offsetW, bx));
   float ovh = std::max(-by, std::min(m_sweepParams.offsetH, by));
@@ -229,7 +229,7 @@ bool SweepMeshProxy::inspect(SceneWindow& window)
     updateMesh();
   }
 
-  // --- CÓDIGO DO BOTÃO DE SALVAR (TAREFA A6) ---
+ 
   ImGui::Separator();
   ImGui::InputText("Nome do Arquivo", m_meshName, IM_ARRAYSIZE(m_meshName));
   if (ImGui::Button("Salvar malha em .OBJ"))
@@ -238,9 +238,9 @@ bool SweepMeshProxy::inspect(SceneWindow& window)
       cg::exportMeshToOBJ(*m, m_meshName);
     }
   }
-  // ---------------------------------------------
+
 
   return changed;
 }
 
-} // namespace cg::graph
+} 

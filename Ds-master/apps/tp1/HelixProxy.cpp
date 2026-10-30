@@ -10,7 +10,6 @@ namespace cg::graph
 
 constexpr float PI = 3.14159265358979323846f;
 
-// Função auxiliar para criar uma malha inicial vazia para o TriangleMeshMapper
 inline TriangleMesh& createInitialMesh()
 {
   TriangleMesh::Data data{};
@@ -22,7 +21,7 @@ inline TriangleMesh& createInitialMesh()
   return *new TriangleMesh{std::move(data)};
 }
 
-// Passa a malha inicial para o construtor do TriangleMeshMapper (resolve o erro 289)
+
 HelixProxy::HelixProxy():
   PrimitiveProxy{*new TriangleMeshMapper{createInitialMesh()}}
 {
@@ -45,7 +44,6 @@ void HelixProxy::buildSpiralMesh()
   float bx = 0.0f, by = 0.0f;
   m_polyline.getBoundingBox(bx, by);
 
-  // OPERADORES DE MULTIPLICAÇÃO E SUBTRAÇÃO CORRIGIDOS
   float we = std::max(m_helixParams.initialWidth, 2.0f * bx);
   float re = std::clamp(m_helixParams.revolutions, 0.1f, 20.0f);
   int nes = std::clamp(m_helixParams.subdivisions, 3, 40);
@@ -60,11 +58,9 @@ void HelixProxy::buildSpiralMesh()
   float totalDeltaH = re * dh;
   float totalDeltaW = re * dw;
 
-  // Verificação para as tampas nas extremidades
   int segments = m_polyline.isClosed() ? np : np - 1;
   bool hasCaps = m_helixParams.makeCaps && m_polyline.isClosed() && !m_polylineParams.enableExtrusion;
 
-  // Atualização da contagem de vértices e triângulos incluindo as tampas
   int vertexCount = numSteps * np + (hasCaps ? 2 * np : 0);
   int triangleCount = 2 * ner * segments + (hasCaps ? 2 * (np - 2) : 0);
 
@@ -75,7 +71,6 @@ void HelixProxy::buildSpiralMesh()
   data.vertexNormals = nullptr;
   data.triangles = new TriangleMesh::Triangle[triangleCount];
 
-  // 1. Preenchimento dos Vértices da Espiral
   int vIdx = 0;
   for (int k = 0; k < numSteps; ++k)
   {
@@ -98,7 +93,6 @@ void HelixProxy::buildSpiralMesh()
     }
   }
 
-  // 2. Preenchimento dos Triângulos da Malha
   int tIdx = 0;
   for (int k = 0; k < ner; ++k)
   {
@@ -119,26 +113,21 @@ void HelixProxy::buildSpiralMesh()
     }
   }
 
-  // 3. Construção das tampas
   if (hasCaps)
   {
-    // Tampa inferior (início da espiral)
     int bottomOffset = vIdx;
     for (int i = 0; i < np; ++i) {
-      data.vertices[vIdx++] = data.vertices[i]; // Copia a primeira face
+      data.vertices[vIdx++] = data.vertices[i]; 
     }
-    // Triangulação em leque
     for (int i = 1; i < np - 1; ++i) {
       data.triangles[tIdx++].setVertices(bottomOffset, bottomOffset + i + 1, bottomOffset + i);
     }
 
-    // Tampa superior (fim da espiral)
     int topOffset = vIdx;
-    int lastRingOffset = ner * np; // Índice de onde começa o último anel
+    int lastRingOffset = ner * np; 
     for (int i = 0; i < np; ++i) {
-      data.vertices[vIdx++] = data.vertices[lastRingOffset + i]; // Copia a última face
+      data.vertices[vIdx++] = data.vertices[lastRingOffset + i];
     }
-    // Triangulação em leque invertida para a normal apontar para fora
     for (int i = 1; i < np - 1; ++i) {
       data.triangles[tIdx++].setVertices(topOffset, topOffset + i, topOffset + i + 1);
     }
@@ -226,7 +215,6 @@ bool HelixProxy::inspect(SceneWindow& window)
     updateMesh();
   }
 
-  // --- CÓDIGO DO BOTÃO DE SALVAR (TAREFA A6) ---
   ImGui::Separator();
   ImGui::InputText("Nome do Arquivo", m_meshName, IM_ARRAYSIZE(m_meshName));
   if (ImGui::Button("Salvar malha em .OBJ"))
@@ -235,9 +223,8 @@ bool HelixProxy::inspect(SceneWindow& window)
       cg::exportMeshToOBJ(*m, m_meshName);
     }
   }
-  // ---------------------------------------------
 
   return changed;
 }
 
-} // namespace cg::graph
+} 

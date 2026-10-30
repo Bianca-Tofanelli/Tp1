@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <utility>
 #include "ObjExporter.h"
+
 namespace cg::graph
 {
 
@@ -59,9 +60,13 @@ void HelixProxy::buildSpiralMesh()
   float totalDeltaH = re * dh;
   float totalDeltaW = re * dw;
 
-  int vertexCount = numSteps * np;
+  // Verificação para as tampas nas extremidades
   int segments = m_polyline.isClosed() ? np : np - 1;
-  int triangleCount = 2 * ner * segments;
+  bool hasCaps = m_helixParams.makeCaps && m_polyline.isClosed() && !m_polylineParams.enableExtrusion;
+
+  // Atualização da contagem de vértices e triângulos incluindo as tampas
+  int vertexCount = numSteps * np + (hasCaps ? 2 * np : 0);
+  int triangleCount = 2 * ner * segments + (hasCaps ? 2 * (np - 2) : 0);
 
   TriangleMesh::Data data{};
   data.vertexCount = vertexCount;
@@ -114,6 +119,31 @@ void HelixProxy::buildSpiralMesh()
     }
   }
 
+  // 3. Construção das tampas
+  if (hasCaps)
+  {
+    // Tampa inferior (início da espiral)
+    int bottomOffset = vIdx;
+    for (int i = 0; i < np; ++i) {
+      data.vertices[vIdx++] = data.vertices[i]; // Copia a primeira face
+    }
+    // Triangulação em leque
+    for (int i = 1; i < np - 1; ++i) {
+      data.triangles[tIdx++].setVertices(bottomOffset, bottomOffset + i + 1, bottomOffset + i);
+    }
+
+    // Tampa superior (fim da espiral)
+    int topOffset = vIdx;
+    int lastRingOffset = ner * np; // Índice de onde começa o último anel
+    for (int i = 0; i < np; ++i) {
+      data.vertices[vIdx++] = data.vertices[lastRingOffset + i]; // Copia a última face
+    }
+    // Triangulação em leque invertida para a normal apontar para fora
+    for (int i = 1; i < np - 1; ++i) {
+      data.triangles[tIdx++].setVertices(topOffset, topOffset + i, topOffset + i + 1);
+    }
+  }
+
   auto mesh = new TriangleMesh{std::move(data)};
   mesh->computeNormals();
 
@@ -122,6 +152,7 @@ void HelixProxy::buildSpiralMesh()
     m->setMesh(*mesh);
   }
 }
+
 bool HelixProxy::inspect(SceneWindow& window)
 {
   bool changed = false;
@@ -194,7 +225,8 @@ bool HelixProxy::inspect(SceneWindow& window)
   {
     updateMesh();
   }
-// --- CÓDIGO DO BOTÃO DE SALVAR (TAREFA A6) ---
+
+  // --- CÓDIGO DO BOTÃO DE SALVAR (TAREFA A6) ---
   ImGui::Separator();
   ImGui::InputText("Nome do Arquivo", m_meshName, IM_ARRAYSIZE(m_meshName));
   if (ImGui::Button("Salvar malha em .OBJ"))
@@ -207,6 +239,5 @@ bool HelixProxy::inspect(SceneWindow& window)
 
   return changed;
 }
-  
 
 } // namespace cg::graph

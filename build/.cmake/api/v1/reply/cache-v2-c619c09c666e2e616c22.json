@@ -27,7 +27,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/build"
+			"value" : "c:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Tp1/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -335,7 +335,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/build/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Tp1/build/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -1023,7 +1023,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/build"
+			"value" : "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Tp1/build"
 		},
 		{
 			"name" : "cgdemo_IS_TOP_LEVEL",

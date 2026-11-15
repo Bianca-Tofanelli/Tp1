@@ -41,11 +41,11 @@ events:
         - "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath"
         - "C:\\Python314\\Scripts\\"
         - "C:\\Python314\\"
-        - "C:\\WINDOWS\\system32"
-        - "C:\\WINDOWS"
-        - "C:\\WINDOWS\\System32\\Wbem"
-        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
-        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\nodejs\\"
         - "C:\\ProgramData\\chocolatey\\bin"
@@ -59,6 +59,7 @@ events:
         - "C:\\Users\\bibit\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Users\\bibit\\AppData\\Roaming\\npm"
         - "C:\\Users\\bibit\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\bibit\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
   -
     kind: "message-v1"
     backtrace:
@@ -75,9 +76,9 @@ events:
       The output was:
       0
       Vers├úo do MSBuild 18.10.1-1.26427.6+3cd27c13e para .NET Framework
-      Compila├º├úo de 13/10/2026 19:16:43 iniciada.
+      Compila├º├úo de 15/11/2026 17:49:50 iniciada.
       
-      Projeto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\4.3.1-msvc1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" no n├│ 1 (destinos padr├úo).
+      Projeto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\4.3.1-msvc1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" no n├│ 1 (destinos padr├úo).
       PrepareForBuild:
         Criando o diret├│rio "Debug\\".
         A sa├¡da estruturada est├í habilitada. A formata├º├úo do diagn├│stico do compilador refletir├í a hierarquia de erros. Consulte https://aka.ms/cpp/structured-output para obter mais detalhes.
@@ -90,7 +91,7 @@ events:
         CMakeCXXCompilerId.cpp
       Link:
         C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
-        CompilerIdCXX.vcxproj -> C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\4.3.1-msvc1\\CompilerIdCXX\\CompilerIdCXX.exe
+        CompilerIdCXX.vcxproj -> C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\4.3.1-msvc1\\CompilerIdCXX\\CompilerIdCXX.exe
       PostBuildEvent:
         for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
         :VCEnd
@@ -98,13 +99,13 @@ events:
       FinalizeBuildStatus:
         Excluindo o arquivo "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
         Tocando "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate".
-      Projeto de compila├º├úo pronto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\4.3.1-msvc1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (destinos padr├úo).
+      Projeto de compila├º├úo pronto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\4.3.1-msvc1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (destinos padr├úo).
       
       Compila├º├úo com ├¬xito.
           0 Aviso(s)
           0 Erro(s)
       
-      Tempo Decorrido 00:00:00.63
+      Tempo Decorrido 00:00:00.49
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -112,7 +113,7 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
       
       The CXX compiler identification is MSVC, found in:
-        C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/4.3.1-msvc1/CompilerIdCXX/CompilerIdCXX.exe
+        C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Tp1/Ds-master/apps/tp/build/CMakeFiles/4.3.1-msvc1/CompilerIdCXX/CompilerIdCXX.exe
       
   -
     kind: "find-v1"
@@ -161,6 +162,7 @@ events:
       - "C:/Users/bibit/AppData/Local/GitHubDesktop/bin/"
       - "C:/Users/bibit/AppData/Roaming/npm/"
       - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/"
     searched_directories:
       - "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/link.com"
     found: "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/link.exe"
@@ -172,11 +174,11 @@ events:
         - "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath"
         - "C:\\Python314\\Scripts\\"
         - "C:\\Python314\\"
-        - "C:\\WINDOWS\\system32"
-        - "C:\\WINDOWS"
-        - "C:\\WINDOWS\\System32\\Wbem"
-        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
-        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\nodejs\\"
         - "C:\\ProgramData\\chocolatey\\bin"
@@ -190,6 +192,7 @@ events:
         - "C:\\Users\\bibit\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Users\\bibit\\AppData\\Roaming\\npm"
         - "C:\\Users\\bibit\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\bibit\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
   -
     kind: "find-v1"
     backtrace:
@@ -237,6 +240,7 @@ events:
       - "C:/Users/bibit/AppData/Local/GitHubDesktop/bin/"
       - "C:/Users/bibit/AppData/Roaming/npm/"
       - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/"
     searched_directories:
       - "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/lld-link.com"
       - "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/lld-link.exe"
@@ -313,6 +317,9 @@ events:
       - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/lld-link.com"
       - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/lld-link.exe"
       - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/lld-link"
+      - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/lld-link.com"
+      - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/lld-link.exe"
+      - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/lld-link"
     found: false
     search_context:
       ENV{PATH}:
@@ -322,11 +329,11 @@ events:
         - "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath"
         - "C:\\Python314\\Scripts\\"
         - "C:\\Python314\\"
-        - "C:\\WINDOWS\\system32"
-        - "C:\\WINDOWS"
-        - "C:\\WINDOWS\\System32\\Wbem"
-        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
-        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\nodejs\\"
         - "C:\\ProgramData\\chocolatey\\bin"
@@ -340,6 +347,7 @@ events:
         - "C:\\Users\\bibit\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Users\\bibit\\AppData\\Roaming\\npm"
         - "C:\\Users\\bibit\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\bibit\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
   -
     kind: "find-v1"
     backtrace:
@@ -385,6 +393,7 @@ events:
       - "C:/Users/bibit/AppData/Local/GitHubDesktop/bin/"
       - "C:/Users/bibit/AppData/Roaming/npm/"
       - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/"
     searched_directories:
       - "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/link.com"
     found: "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/link.exe"
@@ -396,11 +405,11 @@ events:
         - "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath"
         - "C:\\Python314\\Scripts\\"
         - "C:\\Python314\\"
-        - "C:\\WINDOWS\\system32"
-        - "C:\\WINDOWS"
-        - "C:\\WINDOWS\\System32\\Wbem"
-        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
-        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\nodejs\\"
         - "C:\\ProgramData\\chocolatey\\bin"
@@ -414,6 +423,7 @@ events:
         - "C:\\Users\\bibit\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Users\\bibit\\AppData\\Roaming\\npm"
         - "C:\\Users\\bibit\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\bibit\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
   -
     kind: "find-v1"
     backtrace:
@@ -459,6 +469,7 @@ events:
       - "C:/Users/bibit/AppData/Local/GitHubDesktop/bin/"
       - "C:/Users/bibit/AppData/Roaming/npm/"
       - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/"
     searched_directories:
       - "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/mt.com"
       - "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/mt.exe"
@@ -535,6 +546,9 @@ events:
       - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/mt.com"
       - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/mt.exe"
       - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/mt"
+      - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/mt.com"
+      - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/mt.exe"
+      - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/mt"
     found: false
     search_context:
       ENV{PATH}:
@@ -544,11 +558,11 @@ events:
         - "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath"
         - "C:\\Python314\\Scripts\\"
         - "C:\\Python314\\"
-        - "C:\\WINDOWS\\system32"
-        - "C:\\WINDOWS"
-        - "C:\\WINDOWS\\System32\\Wbem"
-        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
-        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\nodejs\\"
         - "C:\\ProgramData\\chocolatey\\bin"
@@ -562,6 +576,7 @@ events:
         - "C:\\Users\\bibit\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Users\\bibit\\AppData\\Roaming\\npm"
         - "C:\\Users\\bibit\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\bibit\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
   -
     kind: "find-v1"
     backtrace:
@@ -607,6 +622,7 @@ events:
       - "C:/Users/bibit/AppData/Local/GitHubDesktop/bin/"
       - "C:/Users/bibit/AppData/Roaming/npm/"
       - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/"
     searched_directories:
       - "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/lib.com"
     found: "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/lib.exe"
@@ -618,11 +634,11 @@ events:
         - "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath"
         - "C:\\Python314\\Scripts\\"
         - "C:\\Python314\\"
-        - "C:\\WINDOWS\\system32"
-        - "C:\\WINDOWS"
-        - "C:\\WINDOWS\\System32\\Wbem"
-        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
-        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\nodejs\\"
         - "C:\\ProgramData\\chocolatey\\bin"
@@ -636,6 +652,7 @@ events:
         - "C:\\Users\\bibit\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Users\\bibit\\AppData\\Roaming\\npm"
         - "C:\\Users\\bibit\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\bibit\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
   -
     kind: "find-v1"
     backtrace:
@@ -683,6 +700,7 @@ events:
       - "C:/Users/bibit/AppData/Local/GitHubDesktop/bin/"
       - "C:/Users/bibit/AppData/Roaming/npm/"
       - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/"
       - "C:/Program Files/bin/"
       - "C:/Program Files/sbin/"
       - "C:/Program Files/"
@@ -768,6 +786,9 @@ events:
       - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/rc.com"
       - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/rc.exe"
       - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/rc"
+      - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/rc.com"
+      - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/rc.exe"
+      - "C:/Users/bibit/AppData/Local/Programs/Microsoft VS Code/bin/copilot-shim/rc"
       - "C:/Program Files/bin/rc.com"
       - "C:/Program Files/bin/rc.exe"
       - "C:/Program Files/bin/rc"
@@ -813,11 +834,11 @@ events:
         - "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath"
         - "C:\\Python314\\Scripts\\"
         - "C:\\Python314\\"
-        - "C:\\WINDOWS\\system32"
-        - "C:\\WINDOWS"
-        - "C:\\WINDOWS\\System32\\Wbem"
-        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
-        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\nodejs\\"
         - "C:\\ProgramData\\chocolatey\\bin"
@@ -831,6 +852,7 @@ events:
         - "C:\\Users\\bibit\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Users\\bibit\\AppData\\Roaming\\npm"
         - "C:\\Users\\bibit\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\bibit\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
       CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/cgdemo"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
@@ -846,8 +868,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/CMakeScratch/TryCompile-wvpcjh"
-      binary: "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/CMakeScratch/TryCompile-wvpcjh"
+      source: "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Tp1/Ds-master/apps/tp/build/CMakeFiles/CMakeScratch/TryCompile-6lq78f"
+      binary: "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Tp1/Ds-master/apps/tp/build/CMakeFiles/CMakeScratch/TryCompile-6lq78f"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -858,39 +880,39 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/CMakeScratch/TryCompile-wvpcjh'
+        Change Dir: 'C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Tp1/Ds-master/apps/tp/build/CMakeFiles/CMakeScratch/TryCompile-6lq78f'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_0c435.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_e13df.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
         Vers├úo do MSBuild 18.10.1-1.26427.6+3cd27c13e para .NET Framework
-        Compila├º├úo de 13/10/2026 19:16:44 iniciada.
+        Compila├º├úo de 15/11/2026 17:49:51 iniciada.
         
-        Projeto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wvpcjh\\cmTC_0c435.vcxproj" no n├│ 1 (destinos padr├úo).
+        Projeto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6lq78f\\cmTC_e13df.vcxproj" no n├│ 1 (destinos padr├úo).
         PrepareForBuild:
           A sa├¡da estruturada est├í habilitada. A formata├º├úo do diagn├│stico do compilador refletir├í a hierarquia de erros. Consulte https://aka.ms/cpp/structured-output para obter mais detalhes.
-          Criando o diret├│rio "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wvpcjh\\Debug\\".
-          Criando o diret├│rio "cmTC_0c435.dir\\Debug\\cmTC_0c435.tlog\\".
+          Criando o diret├│rio "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6lq78f\\Debug\\".
+          Criando o diret├│rio "cmTC_e13df.dir\\Debug\\cmTC_e13df.tlog\\".
         InitializeBuildStatus:
-          Criando "cmTC_0c435.dir\\Debug\\cmTC_0c435.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
-          Tocando "cmTC_0c435.dir\\Debug\\cmTC_0c435.tlog\\unsuccessfulbuild".
+          Criando "cmTC_e13df.dir\\Debug\\cmTC_e13df.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
+          Tocando "cmTC_e13df.dir\\Debug\\cmTC_e13df.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_0c435.dir\\Debug\\\\" /Fd"cmTC_0c435.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_e13df.dir\\Debug\\\\" /Fd"cmTC_e13df.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.51.36260 for x64
           Copyright (C) Microsoft Corporation. Todos os direitos reservados.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_0c435.dir\\Debug\\\\" /Fd"cmTC_0c435.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_e13df.dir\\Debug\\\\" /Fd"cmTC_e13df.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wvpcjh\\Debug\\cmTC_0c435.exe" /INCREMENTAL /ILK:"cmTC_0c435.dir\\Debug\\cmTC_0c435.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/CMakeScratch/TryCompile-wvpcjh/Debug/cmTC_0c435.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/CMakeScratch/TryCompile-wvpcjh/Debug/cmTC_0c435.lib" /MACHINE:X64  /machine:x64 cmTC_0c435.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_0c435.vcxproj -> C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wvpcjh\\Debug\\cmTC_0c435.exe
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6lq78f\\Debug\\cmTC_e13df.exe" /INCREMENTAL /ILK:"cmTC_e13df.dir\\Debug\\cmTC_e13df.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Tp1/Ds-master/apps/tp/build/CMakeFiles/CMakeScratch/TryCompile-6lq78f/Debug/cmTC_e13df.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Tp1/Ds-master/apps/tp/build/CMakeFiles/CMakeScratch/TryCompile-6lq78f/Debug/cmTC_e13df.lib" /MACHINE:X64  /machine:x64 cmTC_e13df.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_e13df.vcxproj -> C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6lq78f\\Debug\\cmTC_e13df.exe
         FinalizeBuildStatus:
-          Excluindo o arquivo "cmTC_0c435.dir\\Debug\\cmTC_0c435.tlog\\unsuccessfulbuild".
-          Tocando "cmTC_0c435.dir\\Debug\\cmTC_0c435.tlog\\cmTC_0c435.lastbuildstate".
-        Projeto de compila├º├úo pronto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wvpcjh\\cmTC_0c435.vcxproj" (destinos padr├úo).
+          Excluindo o arquivo "cmTC_e13df.dir\\Debug\\cmTC_e13df.tlog\\unsuccessfulbuild".
+          Tocando "cmTC_e13df.dir\\Debug\\cmTC_e13df.tlog\\cmTC_e13df.lastbuildstate".
+        Projeto de compila├º├úo pronto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6lq78f\\cmTC_e13df.vcxproj" (destinos padr├úo).
         
         Compila├º├úo com ├¬xito.
             0 Aviso(s)
             0 Erro(s)
         
-        Tempo Decorrido 00:00:00.63
+        Tempo Decorrido 00:00:00.49
         
       exitCode: 0
   -
@@ -924,8 +946,8 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/cg/import.cmake:35 (find_library)"
-      - "CMakeLists.txt:33 (include)"
+      - "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Tp1/Ds-master/cg/import.cmake:35 (find_library)"
+      - "CMakeLists.txt:35 (include)"
     mode: "library"
     variable: "glfw3_LIB"
     description: "Path to a library."
@@ -940,8 +962,8 @@ events:
     names:
       - "glfw3"
     candidate_directories:
-      - "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/cg/externals/lib/"
-    found: "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/cg/externals/lib/glfw3.lib"
+      - "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Tp1/Ds-master/cg/externals/lib/"
+    found: "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Tp1/Ds-master/cg/externals/lib/glfw3.lib"
     search_context:
       ENV{PATH}:
         - "c:\\Users\\bibit\\.vscode\\extensions\\vadimcn.vscode-lldb-1.12.3\\bin"
@@ -950,11 +972,11 @@ events:
         - "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath"
         - "C:\\Python314\\Scripts\\"
         - "C:\\Python314\\"
-        - "C:\\WINDOWS\\system32"
-        - "C:\\WINDOWS"
-        - "C:\\WINDOWS\\System32\\Wbem"
-        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
-        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\nodejs\\"
         - "C:\\ProgramData\\chocolatey\\bin"
@@ -968,6 +990,7 @@ events:
         - "C:\\Users\\bibit\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Users\\bibit\\AppData\\Roaming\\npm"
         - "C:\\Users\\bibit\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\bibit\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\copilot-shim"
       CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/cgdemo"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
@@ -983,22 +1006,22 @@ events:
     backtrace:
       - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CheckIPOSupported.cmake:197 (try_compile)"
       - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CheckIPOSupported.cmake:320 (_ipo_run_language_check)"
-      - "CMakeLists.txt:69 (check_ipo_supported)"
+      - "CMakeLists.txt:71 (check_ipo_supported)"
     directories:
-      source: "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/src"
-      binary: "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/bin"
+      source: "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Tp1/Ds-master/apps/tp/build/CMakeFiles/_CMakeLTOTest-CXX/src"
+      binary: "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Tp1/Ds-master/apps/tp/build/CMakeFiles/_CMakeLTOTest-CXX/bin"
     buildResult:
       variable: "_IPO_LANGUAGE_CHECK_RESULT"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/bin'
+        Change Dir: 'C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Tp1/Ds-master/apps/tp/build/CMakeFiles/_CMakeLTOTest-CXX/bin'
         
         Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" ALL_BUILD.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
         Vers├úo do MSBuild 18.10.1-1.26427.6+3cd27c13e para .NET Framework
-        Compila├º├úo de 13/10/2026 19:16:45 iniciada.
+        Compila├º├úo de 15/11/2026 17:49:52 iniciada.
         
-        Projeto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ALL_BUILD.vcxproj" no n├│ 1 (destinos padr├úo).
-        O projeto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ALL_BUILD.vcxproj" (1) est├í compilando "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ZERO_CHECK.vcxproj" (2) no n├│ 1 (destinos padr├úo).
+        Projeto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ALL_BUILD.vcxproj" no n├│ 1 (destinos padr├úo).
+        O projeto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ALL_BUILD.vcxproj" (1) est├í compilando "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ZERO_CHECK.vcxproj" (2) no n├│ 1 (destinos padr├úo).
         PrepareForBuild:
           Criando o diret├│rio "x64\\Debug\\ZERO_CHECK\\".
           A sa├¡da estruturada est├í habilitada. A formata├º├úo do diagn├│stico do compilador refletir├í a hierarquia de erros. Consulte https://aka.ms/cpp/structured-output para obter mais detalhes.
@@ -1011,31 +1034,31 @@ events:
         FinalizeBuildStatus:
           Excluindo o arquivo "x64\\Debug\\ZERO_CHECK\\ZERO_CHECK.tlog\\unsuccessfulbuild".
           Tocando "x64\\Debug\\ZERO_CHECK\\ZERO_CHECK.tlog\\ZERO_CHECK.lastbuildstate".
-        Projeto de compila├º├úo pronto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ZERO_CHECK.vcxproj" (destinos padr├úo).
-        O projeto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ALL_BUILD.vcxproj" (1) est├í compilando "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\boo.vcxproj" (3) no n├│ 1 (destinos padr├úo).
-        O projeto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\boo.vcxproj" (3) est├í compilando "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\foo.vcxproj" (4) no n├│ 1 (destinos padr├úo).
+        Projeto de compila├º├úo pronto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ZERO_CHECK.vcxproj" (destinos padr├úo).
+        O projeto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ALL_BUILD.vcxproj" (1) est├í compilando "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\boo.vcxproj" (3) no n├│ 1 (destinos padr├úo).
+        O projeto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\boo.vcxproj" (3) est├í compilando "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\foo.vcxproj" (4) no n├│ 1 (destinos padr├úo).
         PrepareForBuild:
           A sa├¡da estruturada est├í habilitada. A formata├º├úo do diagn├│stico do compilador refletir├í a hierarquia de erros. Consulte https://aka.ms/cpp/structured-output para obter mais detalhes.
-          Criando o diret├│rio "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\".
+          Criando o diret├│rio "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\".
           Criando o diret├│rio "foo.dir\\Debug\\foo.tlog\\".
         InitializeBuildStatus:
           Criando "foo.dir\\Debug\\foo.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
           Tocando "foo.dir\\Debug\\foo.tlog\\unsuccessfulbuild".
         CustomBuild:
-          Building Custom Rule C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/src/CMakeLists.txt
+          Building Custom Rule C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Tp1/Ds-master/apps/tp/build/CMakeFiles/_CMakeLTOTest-CXX/src/CMakeLists.txt
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"foo.dir\\Debug\\\\" /Fd"C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\foo.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\foo.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"foo.dir\\Debug\\\\" /Fd"C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\foo.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\foo.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.51.36260 for x64
           Copyright (C) Microsoft Corporation. Todos os direitos reservados.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"foo.dir\\Debug\\\\" /Fd"C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\foo.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\foo.cpp"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"foo.dir\\Debug\\\\" /Fd"C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\foo.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\foo.cpp"
           foo.cpp
         Lib:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\Lib.exe /OUT:"C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\foo.lib" /NOLOGO /MACHINE:X64 /LTCG foo.dir\\Debug\\foo.obj
-          foo.vcxproj -> C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\foo.lib
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\Lib.exe /OUT:"C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\foo.lib" /NOLOGO /MACHINE:X64 /LTCG foo.dir\\Debug\\foo.obj
+          foo.vcxproj -> C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\foo.lib
         FinalizeBuildStatus:
           Excluindo o arquivo "foo.dir\\Debug\\foo.tlog\\unsuccessfulbuild".
           Tocando "foo.dir\\Debug\\foo.tlog\\foo.lastbuildstate".
-        Projeto de compila├º├úo pronto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\foo.vcxproj" (destinos padr├úo).
+        Projeto de compila├º├úo pronto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\foo.vcxproj" (destinos padr├úo).
         PrepareForBuild:
           A sa├¡da estruturada est├í habilitada. A formata├º├úo do diagn├│stico do compilador refletir├í a hierarquia de erros. Consulte https://aka.ms/cpp/structured-output para obter mais detalhes.
           Criando o diret├│rio "boo.dir\\Debug\\boo.tlog\\".
@@ -1043,23 +1066,23 @@ events:
           Criando "boo.dir\\Debug\\boo.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
           Tocando "boo.dir\\Debug\\boo.tlog\\unsuccessfulbuild".
         CustomBuild:
-          Building Custom Rule C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/src/CMakeLists.txt
+          Building Custom Rule C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Tp1/Ds-master/apps/tp/build/CMakeFiles/_CMakeLTOTest-CXX/src/CMakeLists.txt
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"boo.dir\\Debug\\\\" /Fd"boo.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\main.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"boo.dir\\Debug\\\\" /Fd"boo.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\main.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.51.36260 for x64
           Copyright (C) Microsoft Corporation. Todos os direitos reservados.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"boo.dir\\Debug\\\\" /Fd"boo.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\main.cpp"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"boo.dir\\Debug\\\\" /Fd"boo.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\main.cpp"
           main.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\boo.exe" /NOLOGO Debug\\foo.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/bin/Debug/boo.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG:incremental /LTCGOUT:"boo.dir\\Debug\\boo.iobj" /TLBID:1 /IMPLIB:"C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/bin/Debug/boo.lib" /MACHINE:X64 boo.dir\\Debug\\main.obj
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\boo.exe" /NOLOGO Debug\\foo.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Tp1/Ds-master/apps/tp/build/CMakeFiles/_CMakeLTOTest-CXX/bin/Debug/boo.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG:incremental /LTCGOUT:"boo.dir\\Debug\\boo.iobj" /TLBID:1 /IMPLIB:"C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Tp1/Ds-master/apps/tp/build/CMakeFiles/_CMakeLTOTest-CXX/bin/Debug/boo.lib" /MACHINE:X64 boo.dir\\Debug\\main.obj
           Gerando c├│digo
           Not all modules are compiled with -Gy (function comdat), build without incremental LTCG.
           Finalizada a gera├º├úo de c├│digo
-          boo.vcxproj -> C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\boo.exe
+          boo.vcxproj -> C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\boo.exe
         FinalizeBuildStatus:
           Excluindo o arquivo "boo.dir\\Debug\\boo.tlog\\unsuccessfulbuild".
           Tocando "boo.dir\\Debug\\boo.tlog\\boo.lastbuildstate".
-        Projeto de compila├º├úo pronto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\boo.vcxproj" (destinos padr├úo).
+        Projeto de compila├º├úo pronto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\boo.vcxproj" (destinos padr├úo).
         PrepareForBuild:
           Criando o diret├│rio "x64\\Debug\\ALL_BUILD\\".
           A sa├¡da estruturada est├í habilitada. A formata├º├úo do diagn├│stico do compilador refletir├í a hierarquia de erros. Consulte https://aka.ms/cpp/structured-output para obter mais detalhes.
@@ -1068,338 +1091,17 @@ events:
           Criando "x64\\Debug\\ALL_BUILD\\ALL_BUILD.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
           Tocando "x64\\Debug\\ALL_BUILD\\ALL_BUILD.tlog\\unsuccessfulbuild".
         CustomBuild:
-          Building Custom Rule C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/src/CMakeLists.txt
+          Building Custom Rule C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Tp1/Ds-master/apps/tp/build/CMakeFiles/_CMakeLTOTest-CXX/src/CMakeLists.txt
         FinalizeBuildStatus:
           Excluindo o arquivo "x64\\Debug\\ALL_BUILD\\ALL_BUILD.tlog\\unsuccessfulbuild".
           Tocando "x64\\Debug\\ALL_BUILD\\ALL_BUILD.tlog\\ALL_BUILD.lastbuildstate".
-        Projeto de compila├º├úo pronto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ALL_BUILD.vcxproj" (destinos padr├úo).
+        Projeto de compila├º├úo pronto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Tp1\\Ds-master\\apps\\tp\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ALL_BUILD.vcxproj" (destinos padr├úo).
         
         Compila├º├úo com ├¬xito.
             0 Aviso(s)
             0 Erro(s)
         
-        Tempo Decorrido 00:00:01.43
-        
-      exitCode: 0
-...
-
----
-events:
-  -
-    kind: "try_compile-v1"
-    backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CheckIPOSupported.cmake:197 (try_compile)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CheckIPOSupported.cmake:320 (_ipo_run_language_check)"
-      - "CMakeLists.txt:69 (check_ipo_supported)"
-    directories:
-      source: "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/src"
-      binary: "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/bin"
-    buildResult:
-      variable: "_IPO_LANGUAGE_CHECK_RESULT"
-      cached: true
-      stdout: |
-        Change Dir: 'C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/bin'
-        
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" ALL_BUILD.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
-        Vers├úo do MSBuild 18.10.1-1.26427.6+3cd27c13e para .NET Framework
-        Compila├º├úo de 14/10/2026 12:24:45 iniciada.
-        
-        Projeto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ALL_BUILD.vcxproj" no n├│ 1 (destinos padr├úo).
-        O projeto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ALL_BUILD.vcxproj" (1) est├í compilando "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ZERO_CHECK.vcxproj" (2) no n├│ 1 (destinos padr├úo).
-        PrepareForBuild:
-          Criando o diret├│rio "x64\\Debug\\ZERO_CHECK\\".
-          A sa├¡da estruturada est├í habilitada. A formata├º├úo do diagn├│stico do compilador refletir├í a hierarquia de erros. Consulte https://aka.ms/cpp/structured-output para obter mais detalhes.
-          Criando o diret├│rio "x64\\Debug\\ZERO_CHECK\\ZERO_CHECK.tlog\\".
-        InitializeBuildStatus:
-          Criando "x64\\Debug\\ZERO_CHECK\\ZERO_CHECK.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
-          Tocando "x64\\Debug\\ZERO_CHECK\\ZERO_CHECK.tlog\\unsuccessfulbuild".
-        CustomBuild:
-          1>Checking Build System
-        FinalizeBuildStatus:
-          Excluindo o arquivo "x64\\Debug\\ZERO_CHECK\\ZERO_CHECK.tlog\\unsuccessfulbuild".
-          Tocando "x64\\Debug\\ZERO_CHECK\\ZERO_CHECK.tlog\\ZERO_CHECK.lastbuildstate".
-        Projeto de compila├º├úo pronto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ZERO_CHECK.vcxproj" (destinos padr├úo).
-        O projeto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ALL_BUILD.vcxproj" (1) est├í compilando "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\boo.vcxproj" (3) no n├│ 1 (destinos padr├úo).
-        O projeto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\boo.vcxproj" (3) est├í compilando "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\foo.vcxproj" (4) no n├│ 1 (destinos padr├úo).
-        PrepareForBuild:
-          A sa├¡da estruturada est├í habilitada. A formata├º├úo do diagn├│stico do compilador refletir├í a hierarquia de erros. Consulte https://aka.ms/cpp/structured-output para obter mais detalhes.
-          Criando o diret├│rio "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\".
-          Criando o diret├│rio "foo.dir\\Debug\\foo.tlog\\".
-        InitializeBuildStatus:
-          Criando "foo.dir\\Debug\\foo.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
-          Tocando "foo.dir\\Debug\\foo.tlog\\unsuccessfulbuild".
-        CustomBuild:
-          Building Custom Rule C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/src/CMakeLists.txt
-        ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"foo.dir\\Debug\\\\" /Fd"C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\foo.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\foo.cpp"
-          Microsoft (R) C/C++ Optimizing Compiler Version 19.51.36260 for x64
-          Copyright (C) Microsoft Corporation. Todos os direitos reservados.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"foo.dir\\Debug\\\\" /Fd"C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\foo.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\foo.cpp"
-          foo.cpp
-        Lib:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\Lib.exe /OUT:"C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\foo.lib" /NOLOGO /MACHINE:X64 /LTCG foo.dir\\Debug\\foo.obj
-          foo.vcxproj -> C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\foo.lib
-        FinalizeBuildStatus:
-          Excluindo o arquivo "foo.dir\\Debug\\foo.tlog\\unsuccessfulbuild".
-          Tocando "foo.dir\\Debug\\foo.tlog\\foo.lastbuildstate".
-        Projeto de compila├º├úo pronto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\foo.vcxproj" (destinos padr├úo).
-        PrepareForBuild:
-          A sa├¡da estruturada est├í habilitada. A formata├º├úo do diagn├│stico do compilador refletir├í a hierarquia de erros. Consulte https://aka.ms/cpp/structured-output para obter mais detalhes.
-          Criando o diret├│rio "boo.dir\\Debug\\boo.tlog\\".
-        InitializeBuildStatus:
-          Criando "boo.dir\\Debug\\boo.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
-          Tocando "boo.dir\\Debug\\boo.tlog\\unsuccessfulbuild".
-        CustomBuild:
-          Building Custom Rule C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/src/CMakeLists.txt
-        ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"boo.dir\\Debug\\\\" /Fd"boo.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\main.cpp"
-          Microsoft (R) C/C++ Optimizing Compiler Version 19.51.36260 for x64
-          Copyright (C) Microsoft Corporation. Todos os direitos reservados.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"boo.dir\\Debug\\\\" /Fd"boo.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\main.cpp"
-          main.cpp
-        Link:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\boo.exe" /NOLOGO Debug\\foo.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/bin/Debug/boo.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG:incremental /LTCGOUT:"boo.dir\\Debug\\boo.iobj" /TLBID:1 /IMPLIB:"C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/bin/Debug/boo.lib" /MACHINE:X64 boo.dir\\Debug\\main.obj
-          Gerando c├│digo
-          Not all modules are compiled with -Gy (function comdat), build without incremental LTCG.
-          Finalizada a gera├º├úo de c├│digo
-          boo.vcxproj -> C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\boo.exe
-        FinalizeBuildStatus:
-          Excluindo o arquivo "boo.dir\\Debug\\boo.tlog\\unsuccessfulbuild".
-          Tocando "boo.dir\\Debug\\boo.tlog\\boo.lastbuildstate".
-        Projeto de compila├º├úo pronto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\boo.vcxproj" (destinos padr├úo).
-        PrepareForBuild:
-          Criando o diret├│rio "x64\\Debug\\ALL_BUILD\\".
-          A sa├¡da estruturada est├í habilitada. A formata├º├úo do diagn├│stico do compilador refletir├í a hierarquia de erros. Consulte https://aka.ms/cpp/structured-output para obter mais detalhes.
-          Criando o diret├│rio "x64\\Debug\\ALL_BUILD\\ALL_BUILD.tlog\\".
-        InitializeBuildStatus:
-          Criando "x64\\Debug\\ALL_BUILD\\ALL_BUILD.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
-          Tocando "x64\\Debug\\ALL_BUILD\\ALL_BUILD.tlog\\unsuccessfulbuild".
-        CustomBuild:
-          Building Custom Rule C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/src/CMakeLists.txt
-        FinalizeBuildStatus:
-          Excluindo o arquivo "x64\\Debug\\ALL_BUILD\\ALL_BUILD.tlog\\unsuccessfulbuild".
-          Tocando "x64\\Debug\\ALL_BUILD\\ALL_BUILD.tlog\\ALL_BUILD.lastbuildstate".
-        Projeto de compila├º├úo pronto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ALL_BUILD.vcxproj" (destinos padr├úo).
-        
-        Compila├º├úo com ├¬xito.
-            0 Aviso(s)
-            0 Erro(s)
-        
-        Tempo Decorrido 00:00:01.68
-        
-      exitCode: 0
-...
-
----
-events:
-  -
-    kind: "try_compile-v1"
-    backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CheckIPOSupported.cmake:197 (try_compile)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CheckIPOSupported.cmake:320 (_ipo_run_language_check)"
-      - "CMakeLists.txt:70 (check_ipo_supported)"
-    directories:
-      source: "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/src"
-      binary: "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/bin"
-    buildResult:
-      variable: "_IPO_LANGUAGE_CHECK_RESULT"
-      cached: true
-      stdout: |
-        Change Dir: 'C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/bin'
-        
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" ALL_BUILD.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
-        Vers├úo do MSBuild 18.10.1-1.26427.6+3cd27c13e para .NET Framework
-        Compila├º├úo de 18/10/2026 17:56:43 iniciada.
-        
-        Projeto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ALL_BUILD.vcxproj" no n├│ 1 (destinos padr├úo).
-        O projeto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ALL_BUILD.vcxproj" (1) est├í compilando "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ZERO_CHECK.vcxproj" (2) no n├│ 1 (destinos padr├úo).
-        PrepareForBuild:
-          Criando o diret├│rio "x64\\Debug\\ZERO_CHECK\\".
-          A sa├¡da estruturada est├í habilitada. A formata├º├úo do diagn├│stico do compilador refletir├í a hierarquia de erros. Consulte https://aka.ms/cpp/structured-output para obter mais detalhes.
-          Criando o diret├│rio "x64\\Debug\\ZERO_CHECK\\ZERO_CHECK.tlog\\".
-        InitializeBuildStatus:
-          Criando "x64\\Debug\\ZERO_CHECK\\ZERO_CHECK.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
-          Tocando "x64\\Debug\\ZERO_CHECK\\ZERO_CHECK.tlog\\unsuccessfulbuild".
-        CustomBuild:
-          1>Checking Build System
-        FinalizeBuildStatus:
-          Excluindo o arquivo "x64\\Debug\\ZERO_CHECK\\ZERO_CHECK.tlog\\unsuccessfulbuild".
-          Tocando "x64\\Debug\\ZERO_CHECK\\ZERO_CHECK.tlog\\ZERO_CHECK.lastbuildstate".
-        Projeto de compila├º├úo pronto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ZERO_CHECK.vcxproj" (destinos padr├úo).
-        O projeto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ALL_BUILD.vcxproj" (1) est├í compilando "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\boo.vcxproj" (3) no n├│ 1 (destinos padr├úo).
-        O projeto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\boo.vcxproj" (3) est├í compilando "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\foo.vcxproj" (4) no n├│ 1 (destinos padr├úo).
-        PrepareForBuild:
-          A sa├¡da estruturada est├í habilitada. A formata├º├úo do diagn├│stico do compilador refletir├í a hierarquia de erros. Consulte https://aka.ms/cpp/structured-output para obter mais detalhes.
-          Criando o diret├│rio "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\".
-          Criando o diret├│rio "foo.dir\\Debug\\foo.tlog\\".
-        InitializeBuildStatus:
-          Criando "foo.dir\\Debug\\foo.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
-          Tocando "foo.dir\\Debug\\foo.tlog\\unsuccessfulbuild".
-        CustomBuild:
-          Building Custom Rule C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/src/CMakeLists.txt
-        ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"foo.dir\\Debug\\\\" /Fd"C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\foo.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\foo.cpp"
-          Microsoft (R) C/C++ Optimizing Compiler Version 19.51.36260 for x64
-          Copyright (C) Microsoft Corporation. Todos os direitos reservados.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"foo.dir\\Debug\\\\" /Fd"C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\foo.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\foo.cpp"
-          foo.cpp
-        Lib:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\Lib.exe /OUT:"C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\foo.lib" /NOLOGO /MACHINE:X64 /LTCG foo.dir\\Debug\\foo.obj
-          foo.vcxproj -> C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\foo.lib
-        FinalizeBuildStatus:
-          Excluindo o arquivo "foo.dir\\Debug\\foo.tlog\\unsuccessfulbuild".
-          Tocando "foo.dir\\Debug\\foo.tlog\\foo.lastbuildstate".
-        Projeto de compila├º├úo pronto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\foo.vcxproj" (destinos padr├úo).
-        PrepareForBuild:
-          A sa├¡da estruturada est├í habilitada. A formata├º├úo do diagn├│stico do compilador refletir├í a hierarquia de erros. Consulte https://aka.ms/cpp/structured-output para obter mais detalhes.
-          Criando o diret├│rio "boo.dir\\Debug\\boo.tlog\\".
-        InitializeBuildStatus:
-          Criando "boo.dir\\Debug\\boo.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
-          Tocando "boo.dir\\Debug\\boo.tlog\\unsuccessfulbuild".
-        CustomBuild:
-          Building Custom Rule C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/src/CMakeLists.txt
-        ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"boo.dir\\Debug\\\\" /Fd"boo.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\main.cpp"
-          Microsoft (R) C/C++ Optimizing Compiler Version 19.51.36260 for x64
-          Copyright (C) Microsoft Corporation. Todos os direitos reservados.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"boo.dir\\Debug\\\\" /Fd"boo.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\main.cpp"
-          main.cpp
-        Link:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\boo.exe" /NOLOGO Debug\\foo.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/bin/Debug/boo.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG:incremental /LTCGOUT:"boo.dir\\Debug\\boo.iobj" /TLBID:1 /IMPLIB:"C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/bin/Debug/boo.lib" /MACHINE:X64 boo.dir\\Debug\\main.obj
-          Gerando c├│digo
-          Not all modules are compiled with -Gy (function comdat), build without incremental LTCG.
-          Finalizada a gera├º├úo de c├│digo
-          boo.vcxproj -> C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\boo.exe
-        FinalizeBuildStatus:
-          Excluindo o arquivo "boo.dir\\Debug\\boo.tlog\\unsuccessfulbuild".
-          Tocando "boo.dir\\Debug\\boo.tlog\\boo.lastbuildstate".
-        Projeto de compila├º├úo pronto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\boo.vcxproj" (destinos padr├úo).
-        PrepareForBuild:
-          Criando o diret├│rio "x64\\Debug\\ALL_BUILD\\".
-          A sa├¡da estruturada est├í habilitada. A formata├º├úo do diagn├│stico do compilador refletir├í a hierarquia de erros. Consulte https://aka.ms/cpp/structured-output para obter mais detalhes.
-          Criando o diret├│rio "x64\\Debug\\ALL_BUILD\\ALL_BUILD.tlog\\".
-        InitializeBuildStatus:
-          Criando "x64\\Debug\\ALL_BUILD\\ALL_BUILD.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
-          Tocando "x64\\Debug\\ALL_BUILD\\ALL_BUILD.tlog\\unsuccessfulbuild".
-        CustomBuild:
-          Building Custom Rule C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/src/CMakeLists.txt
-        FinalizeBuildStatus:
-          Excluindo o arquivo "x64\\Debug\\ALL_BUILD\\ALL_BUILD.tlog\\unsuccessfulbuild".
-          Tocando "x64\\Debug\\ALL_BUILD\\ALL_BUILD.tlog\\ALL_BUILD.lastbuildstate".
-        Projeto de compila├º├úo pronto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ALL_BUILD.vcxproj" (destinos padr├úo).
-        
-        Compila├º├úo com ├¬xito.
-            0 Aviso(s)
-            0 Erro(s)
-        
-        Tempo Decorrido 00:00:01.44
-        
-      exitCode: 0
-...
-
----
-events:
-  -
-    kind: "try_compile-v1"
-    backtrace:
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CheckIPOSupported.cmake:197 (try_compile)"
-      - "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CheckIPOSupported.cmake:320 (_ipo_run_language_check)"
-      - "CMakeLists.txt:70 (check_ipo_supported)"
-    directories:
-      source: "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/src"
-      binary: "C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/bin"
-    buildResult:
-      variable: "_IPO_LANGUAGE_CHECK_RESULT"
-      cached: true
-      stdout: |
-        Change Dir: 'C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/bin'
-        
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" ALL_BUILD.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
-        Vers├úo do MSBuild 18.10.1-1.26427.6+3cd27c13e para .NET Framework
-        Compila├º├úo de 30/10/2026 13:23:37 iniciada.
-        
-        Projeto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ALL_BUILD.vcxproj" no n├│ 1 (destinos padr├úo).
-        O projeto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ALL_BUILD.vcxproj" (1) est├í compilando "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ZERO_CHECK.vcxproj" (2) no n├│ 1 (destinos padr├úo).
-        PrepareForBuild:
-          Criando o diret├│rio "x64\\Debug\\ZERO_CHECK\\".
-          A sa├¡da estruturada est├í habilitada. A formata├º├úo do diagn├│stico do compilador refletir├í a hierarquia de erros. Consulte https://aka.ms/cpp/structured-output para obter mais detalhes.
-          Criando o diret├│rio "x64\\Debug\\ZERO_CHECK\\ZERO_CHECK.tlog\\".
-        InitializeBuildStatus:
-          Criando "x64\\Debug\\ZERO_CHECK\\ZERO_CHECK.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
-          Tocando "x64\\Debug\\ZERO_CHECK\\ZERO_CHECK.tlog\\unsuccessfulbuild".
-        CustomBuild:
-          1>Checking Build System
-        FinalizeBuildStatus:
-          Excluindo o arquivo "x64\\Debug\\ZERO_CHECK\\ZERO_CHECK.tlog\\unsuccessfulbuild".
-          Tocando "x64\\Debug\\ZERO_CHECK\\ZERO_CHECK.tlog\\ZERO_CHECK.lastbuildstate".
-        Projeto de compila├º├úo pronto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ZERO_CHECK.vcxproj" (destinos padr├úo).
-        O projeto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ALL_BUILD.vcxproj" (1) est├í compilando "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\boo.vcxproj" (3) no n├│ 1 (destinos padr├úo).
-        O projeto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\boo.vcxproj" (3) est├í compilando "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\foo.vcxproj" (4) no n├│ 1 (destinos padr├úo).
-        PrepareForBuild:
-          A sa├¡da estruturada est├í habilitada. A formata├º├úo do diagn├│stico do compilador refletir├í a hierarquia de erros. Consulte https://aka.ms/cpp/structured-output para obter mais detalhes.
-          Criando o diret├│rio "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\".
-          Criando o diret├│rio "foo.dir\\Debug\\foo.tlog\\".
-        InitializeBuildStatus:
-          Criando "foo.dir\\Debug\\foo.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
-          Tocando "foo.dir\\Debug\\foo.tlog\\unsuccessfulbuild".
-        CustomBuild:
-          Building Custom Rule C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/src/CMakeLists.txt
-        ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"foo.dir\\Debug\\\\" /Fd"C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\foo.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\foo.cpp"
-          Microsoft (R) C/C++ Optimizing Compiler Version 19.51.36260 for x64
-          Copyright (C) Microsoft Corporation. Todos os direitos reservados.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"foo.dir\\Debug\\\\" /Fd"C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\foo.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\foo.cpp"
-          foo.cpp
-        Lib:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\Lib.exe /OUT:"C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\foo.lib" /NOLOGO /MACHINE:X64 /LTCG foo.dir\\Debug\\foo.obj
-          foo.vcxproj -> C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\foo.lib
-        FinalizeBuildStatus:
-          Excluindo o arquivo "foo.dir\\Debug\\foo.tlog\\unsuccessfulbuild".
-          Tocando "foo.dir\\Debug\\foo.tlog\\foo.lastbuildstate".
-        Projeto de compila├º├úo pronto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\foo.vcxproj" (destinos padr├úo).
-        PrepareForBuild:
-          A sa├¡da estruturada est├í habilitada. A formata├º├úo do diagn├│stico do compilador refletir├í a hierarquia de erros. Consulte https://aka.ms/cpp/structured-output para obter mais detalhes.
-          Criando o diret├│rio "boo.dir\\Debug\\boo.tlog\\".
-        InitializeBuildStatus:
-          Criando "boo.dir\\Debug\\boo.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
-          Tocando "boo.dir\\Debug\\boo.tlog\\unsuccessfulbuild".
-        CustomBuild:
-          Building Custom Rule C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/src/CMakeLists.txt
-        ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"boo.dir\\Debug\\\\" /Fd"boo.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\main.cpp"
-          Microsoft (R) C/C++ Optimizing Compiler Version 19.51.36260 for x64
-          Copyright (C) Microsoft Corporation. Todos os direitos reservados.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"boo.dir\\Debug\\\\" /Fd"boo.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\src\\main.cpp"
-          main.cpp
-        Link:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\boo.exe" /NOLOGO Debug\\foo.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/bin/Debug/boo.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG:incremental /LTCGOUT:"boo.dir\\Debug\\boo.iobj" /TLBID:1 /IMPLIB:"C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/bin/Debug/boo.lib" /MACHINE:X64 boo.dir\\Debug\\main.obj
-          Gerando c├│digo
-          Not all modules are compiled with -Gy (function comdat), build without incremental LTCG.
-          Finalizada a gera├º├úo de c├│digo
-          boo.vcxproj -> C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\Debug\\boo.exe
-        FinalizeBuildStatus:
-          Excluindo o arquivo "boo.dir\\Debug\\boo.tlog\\unsuccessfulbuild".
-          Tocando "boo.dir\\Debug\\boo.tlog\\boo.lastbuildstate".
-        Projeto de compila├º├úo pronto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\boo.vcxproj" (destinos padr├úo).
-        PrepareForBuild:
-          Criando o diret├│rio "x64\\Debug\\ALL_BUILD\\".
-          A sa├¡da estruturada est├í habilitada. A formata├º├úo do diagn├│stico do compilador refletir├í a hierarquia de erros. Consulte https://aka.ms/cpp/structured-output para obter mais detalhes.
-          Criando o diret├│rio "x64\\Debug\\ALL_BUILD\\ALL_BUILD.tlog\\".
-        InitializeBuildStatus:
-          Criando "x64\\Debug\\ALL_BUILD\\ALL_BUILD.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
-          Tocando "x64\\Debug\\ALL_BUILD\\ALL_BUILD.tlog\\unsuccessfulbuild".
-        CustomBuild:
-          Building Custom Rule C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1/build/CMakeFiles/_CMakeLTOTest-CXX/src/CMakeLists.txt
-        FinalizeBuildStatus:
-          Excluindo o arquivo "x64\\Debug\\ALL_BUILD\\ALL_BUILD.tlog\\unsuccessfulbuild".
-          Tocando "x64\\Debug\\ALL_BUILD\\ALL_BUILD.tlog\\ALL_BUILD.lastbuildstate".
-        Projeto de compila├º├úo pronto "C:\\Users\\bibit\\OneDrive\\Documentos\\GitHub\\Tp1\\Ds-master\\apps\\tp1\\build\\CMakeFiles\\_CMakeLTOTest-CXX\\bin\\ALL_BUILD.vcxproj" (destinos padr├úo).
-        
-        Compila├º├úo com ├¬xito.
-            0 Aviso(s)
-            0 Erro(s)
-        
-        Tempo Decorrido 00:00:01.80
+        Tempo Decorrido 00:00:01.18
         
       exitCode: 0
 ...

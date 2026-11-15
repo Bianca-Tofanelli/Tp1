@@ -29,9 +29,11 @@
 //
 // Author: Paulo Pagliosa
 // Last revision: 06/10/2026
+// Altered for TP2
 
 #include "graphics/Camera.h"
 #include "utils/Stopwatch.h"
+#include "MyMaterial.h"
 #include "RayTracer.h"
 #include <iostream>
 
@@ -375,12 +377,12 @@ RayTracer::shade(const Ray3f& ray,
     N.negate(), NV = -NV;
 
   auto R = V - (2 * NV) * N; // reflection vector
-  // Start with ambient lighting
   auto m = primitive->material();
-  auto color = _scene->ambientLight * m->ambient;
+  auto myMat = dynamic_cast<const MyMaterial*>(m);
   auto P = ray(hit.distance);
+  auto color = Color::black;
 
-  // Compute the direct lighting
+  // Compute the direct lighting (PBR)
   for (auto light : _scene->lights())
   {
     // If the light is turned off, then continue
@@ -411,19 +413,27 @@ RayTracer::shade(const Ray3f& ray,
 
     auto lc = light->lightColor(d);
 
-    color += lc * m->diffuse * NL;
-    if (m->shine <= 0 || (d = R.dot(L)) <= 0)
-      continue;
-    color += lc * m->spot * pow(d, m->shine);
+    if (myMat)
+      color += myMat->shade(N, V, L, lc);
+    else
+    {
+      MyMaterial defaultPbr{m->diffuse, m->specular, 0.5f, 0.0f};
+      color += defaultPbr.shade(N, V, L, lc);
+    }
   }
-  // Compute specular reflection
-  if (m->specular != Color::black)
+
+  // Compute indirect specular reflection 
+  Color Or = myMat
+    ? myMat->indirectSpecular(N, V)
+    : MyMaterial{m->diffuse, m->specular, 0.5f, 0.0f}.indirectSpecular(N, V);
+
+  if (Or != Color::black)
   {
-    weight *= maxRGB(m->specular);
+    weight *= maxRGB(Or);
     if (weight > _minWeight && level < _maxRecursionLevel)
     {
       auto reflectionRay = Ray3f{P + R * rt_eps(), R};
-      color += m->specular * trace(reflectionRay, level + 1, weight);
+      color += Or * trace(reflectionRay, level + 1, weight);
     }
   }
   return color;

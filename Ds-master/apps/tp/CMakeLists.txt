@@ -13,6 +13,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 add_executable(cgdemo
   Main.cpp
+  MyMaterial.cpp
   Polyline.cpp
   HelixProxy.cpp
   MainWindow.cpp

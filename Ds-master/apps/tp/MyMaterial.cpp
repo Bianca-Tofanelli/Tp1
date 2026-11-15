@@ -20,9 +20,14 @@ MyMaterial::MyMaterial(const Color& diffuseColor,
 void
 MyMaterial::syncBaseFields()
 {
-  diffuse = Od;
-  specular = Os;
+  float m = math::clamp(metalness, 0.0f, 1.0f);
+  float r = math::clamp(roughness, 0.001f, 1.0f);
+
   ambient = Color::black;
+  diffuse = (1.0f - m) * Od;
+  spot = (1.0f - m) * sMin * Color::white + m * Os;
+  specular = Os;
+  shine = math::max(1.0f, (1.0f - r) * 200.0f);
 }
 
 Color

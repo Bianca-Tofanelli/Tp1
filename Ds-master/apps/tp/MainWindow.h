@@ -29,6 +29,7 @@
 //
 // Author: Paulo Pagliosa
 // Last revision: 07/10/2026
+// Altered for TP2: PBR material creation and inspection
 
 #ifndef __MainWindow_h
 #define __MainWindow_h
@@ -36,6 +37,7 @@
 #include "graph/SceneWindow.h"
 #include "graphics/AssetFolder.h"
 #include "graphics/GLImage.h"
+#include "MyMaterial.h"
 #include "RayTracer.h"
 #include "HelixProxy.h"
 
@@ -66,6 +68,8 @@ public:
 
 private:
   void createHelixObject();
+  Material* createMaterial();
+
   AssetFolderRef _sceneFolder;
   Reference<RayTracer> _rayTracer;
   Reference<GLImage> _image;
@@ -105,6 +109,8 @@ private:
 
   static void buildDefaultMeshes();
 
+  static void inspectPrimitive(SceneWindow&, TriangleMeshProxy&);
+  static void inspectPBRMaterial(SceneWindow&, Primitive&);
   static void inspectHelix(SceneWindow&, HelixProxy&);
   static void inspectSweepMesh(SceneWindow&, SweepMeshProxy&);
 

@@ -29,6 +29,7 @@
 //
 // Author: Paulo Pagliosa
 // Last revision: 07/10/2026
+// Altered for TP2: PBR material creation and inspection
 
 #include "graphics/Application.h"
 #include "graphics/AssetFolder.h"
@@ -73,13 +74,13 @@ initializeFonts()
 {
   auto fonts = ImGui::GetIO().Fonts;
   constexpr auto alpha = "fonts/Roboto-Regular.ttf";
-  
+
   fonts->AddFontFromFileTTF(Application::assetFilePath(alpha).c_str(), 16);
 
   constexpr ImWchar iconRanges[]{ICON_MIN_FA, ICON_MAX_FA, 0};
   constexpr auto icons = "fonts/fa-solid-900.ttf";
   ImFontConfig fc;
-  
+
   fc.MergeMode = fc.PixelSnapH = true;
   fc.GlyphMinAdvanceX = 16.0f;
 
@@ -99,12 +100,32 @@ MainWindow::beginInitialize()
   Assets::meshes().insert(_defaultMeshes.begin(), _defaultMeshes.end());
   _sceneFolder = AssetFolder::New("scenes/", ".scn");
 
-  // Registra as funções de inspeção da Espiral e da Varredura
+  // Registra as funções de inspeção das primitivas (PBR), Espiral e Varredura
+  registerInspectFunction(inspectPrimitive);
   registerInspectFunction(inspectHelix);
   registerInspectFunction(inspectSweepMesh);
 }
 
-void MainWindow::createObjectMenu()
+Material*
+MainWindow::createMaterial()
+{
+  static int materialCount = 0;
+  auto& materials = Assets::materials();
+  char name[32];
+
+  do
+    snprintf(name, sizeof(name), "Material %d", ++materialCount);
+  while (materials.contains(name));
+
+  auto material = new MyMaterial{Color::white, Color::white, 0.5f, 0.0f};
+
+  material->setName(name);
+  materials[name] = material;
+  return material;
+}
+
+void
+MainWindow::createObjectMenu()
 {
   if (ImGui::BeginMenu("3D Object"))
   {
@@ -120,10 +141,10 @@ void MainWindow::createObjectMenu()
       createDefaultPrimitiveObject("Plane");
 
     ImGui::Separator();
-    
+
     if (ImGui::MenuItem("Espiral (Helix)"))
       createHelixObject();
-      
+
     if (ImGui::MenuItem("Varredura (Sweep)"))
     {
       auto object = createObject("SweepMesh", nullptr);
@@ -157,7 +178,8 @@ MainWindow::addComponentMenu(const SceneObject&)
   return component;
 }
 
-void MainWindow::createHelixObject()
+void
+MainWindow::createHelixObject()
 {
   auto object = createObject("Helix", nullptr);
   auto proxy = new HelixProxy{};
@@ -360,7 +382,6 @@ MainWindow::gui()
   constexpr auto top = (float)23;
   auto w = (float)width();
   auto h = (float)height();
-  
   auto evy = h - evh;
 
   // Hierarchy Window
@@ -421,12 +442,100 @@ MainWindow::onResize(int width, int height)
   return true;
 }
 
-void MainWindow::inspectHelix(SceneWindow& window, HelixProxy& proxy)
+void
+MainWindow::inspectPBRMaterial(SceneWindow& window, Primitive& primitive)
+{
+  auto& mainWin = static_cast<MainWindow&>(window);
+  auto material = primitive.material();
+  auto myMat = dynamic_cast<MyMaterial*>(material);
+
+  // Converte o material Default padrão para uma instância PBR editável
+  if (!myMat)
+  {
+    static Reference<MyMaterial> defaultPbr;
+
+    if (!defaultPbr)
+    {
+      defaultPbr = new MyMaterial{Color::white, Color::white, 0.5f, 0.0f};
+      defaultPbr->setName("Default");
+    }
+    primitive.setMaterial(defaultPbr);
+    material = defaultPbr;
+    myMat = defaultPbr;
+  }
+
+  ImGui::inputText("Material", material->name());
+  if (mainWin.editSceneObjects() && ImGui::BeginDragDropTarget())
+  {
+    if (auto payload = ImGui::AcceptDragDropPayload("Material"))
+    {
+      auto mit = *(MaterialMapIterator*)payload->Data;
+
+      assert(mit->second);
+      primitive.setMaterial(material = mit->second);
+      myMat = dynamic_cast<MyMaterial*>(material);
+    }
+    ImGui::EndDragDropTarget();
+  }
+
+  if (myMat)
+  {
+    ImGui::colorEdit3("Diffuse (Od)", myMat->Od);
+    ImGui::colorEdit3("Specular (Os)", myMat->Os);
+    ImGui::SliderFloat("Roughness (r)", &myMat->roughness, 0.001f, 1.0f, "%.3f");
+    ImGui::SliderFloat("Metalness (m)", &myMat->metalness, 0.0f, 1.0f, "%.3f");
+    myMat->syncBaseFields();
+  }
+}
+
+void
+MainWindow::inspectPrimitive(SceneWindow& window, TriangleMeshProxy& proxy)
+{
+  auto& mainWin = static_cast<MainWindow&>(window);
+
+  ImGui::inputText("Mesh", proxy.meshName());
+  if (mainWin.editSceneObjects() && ImGui::BeginDragDropTarget())
+  {
+    if (auto payload = ImGui::AcceptDragDropPayload("TriangleMesh"))
+    {
+      auto mit = *(MeshMapIterator*)payload->Data;
+      proxy.setMesh(*Assets::loadMesh(mit), mit->first);
+    }
+    ImGui::EndDragDropTarget();
+  }
+  ImGui::SameLine();
+  if (ImGui::Button("...###PrimitiveMesh"))
+    ImGui::OpenPopup("PrimitiveMeshPopup");
+  if (ImGui::BeginPopup("PrimitiveMeshPopup"))
+  {
+    if (auto& meshes = Assets::meshes(); !meshes.empty())
+    {
+      for (auto mit = meshes.begin(); mit != meshes.end(); ++mit)
+        if (ImGui::Selectable(mit->first.c_str()))
+          proxy.setMesh(*Assets::loadMesh(mit), mit->first);
+    }
+    ImGui::EndPopup();
+  }
+  ImGui::Separator();
+
+  auto mapper = proxy.mapper();
+
+  inspectPBRMaterial(window, *(mapper->primitive()));
+  ImGui::Separator();
+  inspectDisplayMode(mapper->renderMode);
+  ImGui::SameLine();
+  ImGui::Checkbox("###ODM", &mapper->useObjectRenderMode);
+  proxy.actor()->visible = proxy.sceneObject()->visible();
+}
+
+void
+MainWindow::inspectHelix(SceneWindow& window, HelixProxy& proxy)
 {
   proxy.inspect(window);
 }
 
-void MainWindow::inspectSweepMesh(SceneWindow& window, SweepMeshProxy& proxy)
+void
+MainWindow::inspectSweepMesh(SceneWindow& window, SweepMeshProxy& proxy)
 {
   proxy.inspect(window);
 }

@@ -55,7 +55,7 @@ MyMaterial::shade(const vec3f& N,
   // Refletância na incidência normal (interpolação dielétrico <-> metal)
   Color F0 = (1.0f - m) * sMin * Color::white + m * Os;
 
-  // Termo de Fresnel - Aproximação de Schlick (Equação 3)
+
   float oneMinusLH = 1.0f - LH;
   float oneMinusLH5 = oneMinusLH * oneMinusLH * oneMinusLH * oneMinusLH * oneMinusLH;
   Color F = F0 + (Color::white - F0) * oneMinusLH5;

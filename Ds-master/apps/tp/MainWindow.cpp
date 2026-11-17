@@ -29,7 +29,7 @@
 //
 // Author: Paulo Pagliosa
 // Last revision: 07/10/2026
-// Altered for TP2: PBR material creation and inspection
+// Altered for TP: PBR material creation and inspection
 
 #include "graphics/Application.h"
 #include "graphics/AssetFolder.h"

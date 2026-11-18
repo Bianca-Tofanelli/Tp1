@@ -36,6 +36,7 @@
 #include "graph/SceneObjectBuilder.h"
 #include "graphics/Assets.h"
 #include "ReaderBase.h"
+#include "../MyMaterial.h"
 
 namespace cg::util
 { // begin namespace cg::util
@@ -129,6 +130,7 @@ protected:
     _HEIGHT,
     _IOR,
     _MATERIAL,
+    _METALNESS,
     _OBJECT,
     _PARALLEL,
     _PERSPECTIVE,
@@ -136,6 +138,7 @@ protected:
     _POSITION,
     _RANGE,
     _ROTATION,
+    _ROUGHNESS,
     _SCALE,
     _SCENE,
     _SHINE,
@@ -180,7 +183,7 @@ private:
   void parseScene();
   void parseSceneEnvironment();
   void parseMaterial();
-  void parseMaterialProperties(Material&);
+  void parseMaterialProperties(MyMaterial&);
   void parseObject(graph::SceneObject&);
   void parseObjectBlock(graph::SceneObject&);
   void parseChildObjectBlock(graph::SceneObject&);

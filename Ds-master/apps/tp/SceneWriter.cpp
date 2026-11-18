@@ -34,6 +34,7 @@
 #include "graph/LightProxy.h"
 #include "graph/PrimitiveProxy.h"
 #include "graphics/Assets.h"
+#include "MyMaterial.h"
 #include "SceneWriter.h"
 
 namespace cg::util
@@ -182,16 +183,25 @@ inline void
 SceneWriter::writeMaterial(const Material& m)
 {
   beginBlock("material", m.name());
-  writeColor("ambient", m.ambient);
-  writeColor("diffuse", m.diffuse);
-  writeColor("spot", m.spot);
-  writeFloat("shine", m.shine);
-  writeColor("specular", m.specular);
-  writeColor("transparency", m.transparency);
-  writeFloat("ior", m.ior);
+  if (auto myMat = dynamic_cast<const MyMaterial*>(&m))
+  {
+    writeColor("diffuse", myMat->Od);
+    writeColor("specular", myMat->Os);
+    writeFloat("roughness", myMat->roughness);
+    writeFloat("metalness", myMat->metalness);
+  }
+  else
+  {
+    writeColor("ambient", m.ambient);
+    writeColor("diffuse", m.diffuse);
+    writeColor("spot", m.spot);
+    writeFloat("shine", m.shine);
+    writeColor("specular", m.specular);
+    writeColor("transparency", m.transparency);
+    writeFloat("ior", m.ior);
+  }
   endBlock();
 }
-
 void
 SceneWriter::writeWorld(const Scene&)
 {

@@ -1,0 +1,10 @@
+^C:\USERS\BIBIT\ONEDRIVE\DOCUMENTOS\GITHUB\TP1\TP1\BUILD\CMAKEFILES\9ACEBC1F9DEA80E8B70D1CB9AE8CCE07\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Ds-master/apps/tp1 -BC:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Tp1/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/bibit/OneDrive/Documentos/GitHub/Tp1/Tp1/build/cgdemo.slnx
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

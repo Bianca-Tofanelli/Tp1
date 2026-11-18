@@ -1,0 +1,8 @@
+================================================================================
+Linker Errors
+Generated: 2026-11-18T20:49:29.377Z
+Total Errors: 1
+================================================================================
+
+[LNK4098] (MSVC)
+defaultlib 'MSVCRT' conflita com uso de outras bibliotecas; use /NODEFAULTLIB:library [C:\Users\bibit\OneDrive\Documentos\GitHub\Tp1\Tp1\build\cgdemo.vcxproj]

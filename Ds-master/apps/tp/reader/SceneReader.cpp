@@ -81,12 +81,14 @@ DEFINE_KEYWORD_TABLE(SceneReader::Parser, parser::Reader::Parser)
   KEYWORD("light", _COMPONENT, _LIGHT)
   KEYWORD("material", _MATERIAL, 0)
   KEYWORD("mesh", _COMPONENT, _MESH)
+  KEYWORD("metalness", _METALNESS, 0)
   KEYWORD("object", _OBJECT, 0)
   KEYWORD("parallel", _PARALLEL, 0)
   KEYWORD("perspective", _PERSPECTIVE, 0)
   KEYWORD("point", _POINT, 0)
   KEYWORD("position", _POSITION, 0)
   KEYWORD("range", _RANGE, 0)
+  KEYWORD("roughness", _ROUGHNESS, 0)
   KEYWORD("rotation", _ROTATION, 0)
   KEYWORD("scale", _SCALE, 0)
   KEYWORD("scene", _SCENE, 0)
@@ -169,7 +171,7 @@ SceneReader::Parser::declaration()
 }
 
 inline void
-SceneReader::Parser::parseMaterialProperties(Material& material)
+SceneReader::Parser::parseMaterialProperties(MyMaterial& material)
 {
   for (;;)
     switch (_token)
@@ -180,7 +182,7 @@ SceneReader::Parser::parseMaterialProperties(Material& material)
         break;
       case _DIFFUSE:
         advance();
-        material.diffuse = matchColor();
+        material.Od = material.diffuse = matchColor();
         break;
       case _SPOT:
         advance();
@@ -195,11 +197,25 @@ SceneReader::Parser::parseMaterialProperties(Material& material)
         break;
       case _SPECULAR:
         advance();
-        material.specular = matchColor();;
+        material.Os = material.specular = matchColor();
+        break;
+      case _ROUGHNESS:
+        advance();
+        if (auto r = matchFloat(); r < 0 || r > 1)
+          error(INVALID_VALUE_FOR, "roughness");
+        else
+          material.roughness = r;
+        break;
+      case _METALNESS:
+        advance();
+        if (auto m = matchFloat(); m < 0 || m > 1)
+          error(INVALID_VALUE_FOR, "metalness");
+        else
+          material.metalness = m;
         break;
       case _TRANSPARENCY:
         advance();
-        material.transparency = matchColor();;
+        material.transparency = matchColor();
         break;
       case _IOR:
         advance();
@@ -216,7 +232,6 @@ SceneReader::Parser::parseMaterialProperties(Material& material)
 void
 SceneReader::Parser::parseMaterial()
 {
-  // _MATERIAL
   advance();
 
   auto name = matchString();
@@ -225,14 +240,14 @@ SceneReader::Parser::parseMaterial()
     error(MATERIAL_ALREADY_DEFINED, name.c_str());
   match('{');
 
-  Reference<Material> material = new Material{Color::black};
+  Reference<MyMaterial> material = new MyMaterial{};
 
   parseMaterialProperties(*material);
   matchEndOfBlock();
+  material->syncBaseFields();
   material->setName(name.c_str());
   _reader->materials.emplace(name, material);
 }
-
 inline void
 SceneReader::Parser::parseSceneEnvironment()
 {

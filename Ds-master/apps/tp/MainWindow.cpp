@@ -449,7 +449,6 @@ MainWindow::inspectPBRMaterial(SceneWindow& window, Primitive& primitive)
   auto material = primitive.material();
   auto myMat = dynamic_cast<MyMaterial*>(material);
 
-  // Converte o material Default padrão para uma instância PBR editável
   if (!myMat)
   {
     static Reference<MyMaterial> defaultPbr;
@@ -458,6 +457,7 @@ MainWindow::inspectPBRMaterial(SceneWindow& window, Primitive& primitive)
     {
       defaultPbr = new MyMaterial{Color::white, Color::white, 0.5f, 0.0f};
       defaultPbr->setName("Default");
+      Assets::materials()["Default"] = defaultPbr;
     }
     primitive.setMaterial(defaultPbr);
     material = defaultPbr;

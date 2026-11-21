@@ -6,6 +6,8 @@
 #include "graphics/TriangleMeshMapper.h"
 #include "Polyline.h"
 
+// Autoras: Bianca Andrade Tofanelli e Paola Vendruscolo
+
 namespace cg::graph
 {
 

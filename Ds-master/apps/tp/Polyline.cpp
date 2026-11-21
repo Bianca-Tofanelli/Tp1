@@ -2,6 +2,8 @@
 #include <cmath>
 #include <algorithm>
 
+// Autoras: Bianca Andrade Tofanelli e Paola Vendruscolo
+
 namespace cg {
 
 constexpr float PI = 3.14159265358979323846f;

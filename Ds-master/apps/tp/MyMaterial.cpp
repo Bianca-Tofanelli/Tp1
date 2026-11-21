@@ -1,6 +1,8 @@
 #include "MyMaterial.h"
 #include <cmath>
 
+// Autoras: Bianca Andrade Tofanelli e Paola Vendruscolo
+
 namespace cg
 { 
 

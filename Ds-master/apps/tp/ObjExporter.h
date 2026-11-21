@@ -6,6 +6,8 @@
 #include <fstream>
 #include <iostream>
 
+// Autoras: Bianca Andrade Tofanelli e Paola Vendruscolo
+
 namespace cg {
 
 inline bool exportMeshToOBJ(const TriangleMesh& mesh, const std::string& meshName) {

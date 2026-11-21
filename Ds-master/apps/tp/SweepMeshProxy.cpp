@@ -5,6 +5,8 @@
 #include <algorithm>
 #include "ObjExporter.h"
 
+// Autoras: Bianca Andrade Tofanelli e Paola Vendruscolo
+
 namespace cg::graph
 {
 

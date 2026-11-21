@@ -4,6 +4,8 @@
 #include "math/Vector3.h"
 #include <vector>
 
+// Autoras: Bianca Andrade Tofanelli e Paola Vendruscolo
+
 namespace cg {
 
 

@@ -3,9 +3,8 @@
 	{
 		"generator" : 
 		{
-			"multiConfig" : true,
-			"name" : "Visual Studio 18 2026",
-			"platform" : "x64"
+			"multiConfig" : false,
+			"name" : "Ninja"
 		},
 		"paths" : 
 		{
@@ -27,7 +26,7 @@
 	"objects" : 
 	[
 		{
-			"jsonFile" : "codemodel-v2-ae4814d22b03c2d50a9b.json",
+			"jsonFile" : "codemodel-v2-fb52cd366e05b245a6c3.json",
 			"kind" : "codemodel",
 			"version" : 
 			{
@@ -36,7 +35,7 @@
 			}
 		},
 		{
-			"jsonFile" : "cache-v2-c619c09c666e2e616c22.json",
+			"jsonFile" : "cache-v2-28e72f24df25ced76f15.json",
 			"kind" : "cache",
 			"version" : 
 			{
@@ -45,7 +44,7 @@
 			}
 		},
 		{
-			"jsonFile" : "cmakeFiles-v1-6528f2d01b2f792a5dbf.json",
+			"jsonFile" : "cmakeFiles-v1-1aba08945996ee58dca0.json",
 			"kind" : "cmakeFiles",
 			"version" : 
 			{
@@ -65,7 +64,7 @@
 	],
 	"reply" : 
 	{
-		"client-vscode" : 
+		"client-MicrosoftVS" : 
 		{
 			"query.json" : 
 			{
@@ -76,22 +75,22 @@
 						"version" : 2
 					},
 					{
+						"kind" : "cmakeFiles",
+						"version" : 1
+					},
+					{
 						"kind" : "codemodel",
 						"version" : 2
 					},
 					{
 						"kind" : "toolchains",
 						"version" : 1
-					},
-					{
-						"kind" : "cmakeFiles",
-						"version" : 1
 					}
 				],
 				"responses" : 
 				[
 					{
-						"jsonFile" : "cache-v2-c619c09c666e2e616c22.json",
+						"jsonFile" : "cache-v2-28e72f24df25ced76f15.json",
 						"kind" : "cache",
 						"version" : 
 						{
@@ -100,7 +99,16 @@
 						}
 					},
 					{
-						"jsonFile" : "codemodel-v2-ae4814d22b03c2d50a9b.json",
+						"jsonFile" : "cmakeFiles-v1-1aba08945996ee58dca0.json",
+						"kind" : "cmakeFiles",
+						"version" : 
+						{
+							"major" : 1,
+							"minor" : 1
+						}
+					},
+					{
+						"jsonFile" : "codemodel-v2-fb52cd366e05b245a6c3.json",
 						"kind" : "codemodel",
 						"version" : 
 						{
@@ -111,15 +119,6 @@
 					{
 						"jsonFile" : "toolchains-v1-4e5fcbebbee11a0af1d9.json",
 						"kind" : "toolchains",
-						"version" : 
-						{
-							"major" : 1,
-							"minor" : 1
-						}
-					},
-					{
-						"jsonFile" : "cmakeFiles-v1-6528f2d01b2f792a5dbf.json",
-						"kind" : "cmakeFiles",
 						"version" : 
 						{
 							"major" : 1,

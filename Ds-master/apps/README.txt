@@ -3,7 +3,7 @@ Alunas:
 Bianca Andrade Tofanelli, 202519050206
 Paola Vendruscolo, 202519050133
 
-Link do vídeo: 
+Link do vídeo: https://youtu.be/gyFzmHmJ25k
 
 Atividades concluídas: todas as partes do projeto da parte 1 e parte 2 foram concluídas, incluindo o bônus A5.
 

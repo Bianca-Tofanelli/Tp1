@@ -5,7 +5,7 @@
 #include "math/Vector3.h"
 
 namespace cg
-{ // begin namespace cg
+{ 
 
 class MyMaterial: public Material
 {
@@ -32,6 +32,6 @@ public:
   void syncBaseFields();
 };
 
-} // end namespace cg
+} 
 
 #endif // __MyMaterial_h

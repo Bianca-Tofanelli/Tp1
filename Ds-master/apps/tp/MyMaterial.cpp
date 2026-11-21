@@ -2,7 +2,7 @@
 #include <cmath>
 
 namespace cg
-{ // begin namespace cg
+{ 
 
 MyMaterial::MyMaterial(const Color& diffuseColor,
                        const Color& specularColor,
@@ -44,7 +44,6 @@ MyMaterial::shade(const vec3f& N,
   if (NL <= 0.0f || NV <= 0.0f)
     return Color::black;
 
-  // Vetor a meio caminho entre L (P -> luz) e -V (P -> observador)
   vec3f H = (L - V).versor();
   float NH = math::max(N.dot(H), 0.0f);
   float LH = math::max(L.dot(H), 0.0f);
@@ -52,7 +51,6 @@ MyMaterial::shade(const vec3f& N,
   float m = math::clamp(metalness, 0.0f, 1.0f);
   float r = math::clamp(roughness, 0.001f, 1.0f);
 
-  // Refletância na incidência normal (interpolação dielétrico <-> metal)
   Color F0 = (1.0f - m) * sMin * Color::white + m * Os;
 
 
@@ -60,23 +58,19 @@ MyMaterial::shade(const vec3f& N,
   float oneMinusLH5 = oneMinusLH * oneMinusLH * oneMinusLH * oneMinusLH * oneMinusLH;
   Color F = F0 + (Color::white - F0) * oneMinusLH5;
 
-  // Termo Geométrico G(L, V)
   float k = (r + 1.0f) * (r + 1.0f) / 8.0f;
   float G1_L = NL / (NL * (1.0f - k) + k);
   float G1_V = NV / (NV * (1.0f - k) + k);
   float G = G1_L * G1_V;
 
-  // Função de Distribuição Normal D(H) - Trowbridge-Reitz
   float alpha = r * r;
   float alpha2 = alpha * alpha;
   float denom = NH * NH * (alpha2 - 1.0f) + 1.0f;
   float D = alpha2 / (pi * denom * denom);
 
-  // Parcela difusa (nula para 100% metal) e parcela especular (Equação 2)
   Color fd = ((1.0f - m) / pi) * Od;
   Color fs = (G * D / (4.0f * NL * NV)) * F;
 
-  // Equação (1)
   return (pi * NL) * lightColor * (fd + fs);
 }
 
@@ -89,7 +83,6 @@ MyMaterial::indirectSpecular(const vec3f& N, const vec3f& V) const
 
   Color F0 = (1.0f - m) * sMin * Color::white + m * Os;
 
-  // Aproximação analítica de Karis (Equação 4)
   float k1 = -1.0f * r + 1.0f;
   float k2 = -0.0275f * r + 0.0425f;
   float k3 = -0.572f * r + 1.04f;

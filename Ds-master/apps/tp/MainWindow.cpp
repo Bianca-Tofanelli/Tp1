@@ -100,7 +100,6 @@ MainWindow::beginInitialize()
   Assets::meshes().insert(_defaultMeshes.begin(), _defaultMeshes.end());
   _sceneFolder = AssetFolder::New("scenes/", ".scn");
 
-  // Registra as funções de inspeção das primitivas (PBR), Espiral e Varredura
   registerInspectFunction(inspectPrimitive);
   registerInspectFunction(inspectHelix);
   registerInspectFunction(inspectSweepMesh);
